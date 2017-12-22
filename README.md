@@ -23,7 +23,7 @@
 2. ...
 
 ### Exercises
-See the exercises (todo: add readme in exercises folder)
+See the [exercises folder](exercises/README.md)
 
 
 Intro
