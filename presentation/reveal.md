@@ -1,63 +1,122 @@
-# Deep
+## Welcome
+### To RxJS 101 <!-- .element: class="fragment" -->
+Introduction <!-- .element: class="fragment" -->
 
-* [Chapter 1](#/1)
-* [Chapter 2a](#/2)
-* [Chapter 2b](#/2/1)
-* [Chapter 3](#/3)
-
----
-
-## Chapter 1
-
-Once upon a time.
-
-[<](#/)
+Note: Introduce ourselves. What's our experience with RxJS?
 
 ---
 
-## Chapter 2a
+## What is RxJS?
 
-Fairy.
+* A better way to manage data and events within your app. <!-- .element: class="fragment" -->
 
-[<](#/)
+---
+
+## Why RxJS?
+
+* Better readable code 🤓<!-- .element: class="fragment" -->
+* Data flow 🌊<!-- .element: class="fragment" -->
+* Easier and safer data transformations 🤖<!-- .element: class="fragment" -->
+* Functional (!) 🙌<!-- .element: class="fragment" -->
+
+---
+
+## What do you use RxJS for?
+
+* Streaming data, (i.e. WebSocket) <!-- .element: class="fragment" -->
+* Games <!-- .element: class="fragment" -->
+* Communicating between application components <!-- .element: class="fragment" -->
 
 ----
 
-## Chapter 2b
+#### Streaming data
 
-Tale.
-
-[<](#/)
-
----
-
-## Chapter 3
-
-```html
-<html>
-    <head></head>
-    <body></body>
-</html>
-```
-
-[<](#/)
-
----
-
-### Chapter 3a.
-
-```typescript
-import { catchError } from 'rxjs/operators'
+```ts
+Pronto example
 ```
 
 ----
 
-Test.
+#### Games
+
+```ts
+const ticks = Observable.interval(this.tickMs)
+    .map(() => 'tick')
+const frames = Observable.interval(this.fpsMs)
+    .map(() => 'frame')
+const seconds = Observable.interval(1000)
+    .map(() => 'second')
+
+this.update$ = Observable.merge(ticks, frames, seconds)
+    .share()
+```
+
+----
+
+#### Communicating between application components
+
+```ts
+Common `event bus` example, ie. Angular
+```
 
 ---
 
-# Fragments
+### So, RxJS?
 
-* Item 1 <!-- .element: class="fragment" -->
-* Item 2 <!-- .element: class="fragment" -->
-* Item 3 <!-- .element: class="fragment" -->
+* Used heavily by `Angular`
+* Lot's of adoption in libraries like 
+    * `Redux-observable`
+    * `NgRx`
+    * `VueRx`
+* Java/Scala also have their implementation.
+
+#### 🤩 So plenty of stuff to have fun with! 🤩 <!-- .element: class="fragment" -->
+
+---
+
+# The RxJS Contract
+
+---
+
+### Wait, what's a contract?
+
+* A set of rules agreed upon <!-- .element: class="fragment" -->
+* Using the same language throughout <!-- .element: class="fragment" -->
+* Ensures we're all using the same things for the same reasons. <!-- .element: class="fragment" -->
+
+Note: Todo
+
+---
+
+### So, the RxJS Contract
+
+* Observable
+* Operators
+* Subscribers
+* Subscription
+* Subject
+
+----
+
+#### Observable
+
+----
+
+#### Operators
+
+----
+
+#### Subscribers
+
+----
+
+#### Subscription
+
+----
+
+#### Subject
+
+---
+
+#### TODO
+
