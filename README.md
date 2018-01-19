@@ -4,9 +4,9 @@
 > W = waiting for
 > X = done
 
-[W] Contact met Academy voor aanmelding training/trainers
-[ ] Aantal excercises bepalen
-[ ] Rode draad tussen excercises vastleggen.
+- [W] Contact met Academy voor aanmelding training/trainers
+- [ ] Aantal excercises bepalen
+- [ ] Rode draad tussen excercises vastleggen.
 
 
 ### Requirements
