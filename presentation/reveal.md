@@ -135,21 +135,89 @@ Note: // Todo
 
 #### Observable
 
-----
-
-#### Operators
+- Datasource* <!-- .element: class="small" -->
+- You can `subscribe` to its contents, much like a newsletter.
+- Unlike a newsletter, it won't send anything until at least someone has a `subscription`.
+- You can use `operators` on it, to get the parts you are interested in.
 
 ----
 
 #### Subscribers
+```js
+var obs = Observable.from([1, 2, 3]);
+
+obs.subscribe(
+    next => { console.log(next); },
+    error => { },
+    complete => { console.log('I\'m done!'); }
+)
+
+// What does this do?
+```
+
+* A subscriber activates an Observable. <!-- .element: class="fragment" -->
+* Within a subscriber you handle every value, an error or when it's done. <!-- .element: class="fragment" -->
 
 ----
 
 #### Subscription
 
+```js
+var obs = Observable.from([1, 2, 3])
+                    .delay(1);
+
+var subscription = obs.subscribe(
+    next => { console.log(next); },
+    error => { },
+    complete => { console.log('I\'m done!'); }
+)
+
+subscription.unsubscribe();
+
+// What do you think this does?
+```
+
+```js
+// and what happens when we remove the delay()?
+```
+<!-- .element: class="fragment" -->
+
+* A subscription let's you unsubscribe from the ~~newsletter~~ `Observable`.
+
 ----
 
-#### Subject
+#### Operators
+
+* Operators are small operations you perform on top of your Observable. <!-- .element: class="fragment" -->
+* You can use multiple operators (chaining) to transform the data to your liking. <!-- .element: class="fragment" -->
+
+```js
+var obs = Observable.from([1, 2, 3])
+                    .map(x => x * 2);
+
+obs.subscribe(
+    next => { console.log(next); }, // 2, 4, 6
+    error => { },
+    complete => { console.log('I\'m done!'); }
+)
+```
+<!-- .element: class="fragment" -->
+
+* There's multiple categories of operators. <!-- .element: class="fragment" -->
+
+----
+
+#### But wait, there's more! 🙀
+
+
+* Subject <!-- .element: class="fragment" -->
+    * BehaviorSubject
+    * ReplaySubject
+* Observers <!-- .element: class="fragment" -->
+
+We may go into these later. <!-- .element: class="fragment" -->
+
+⛔ This is advanced, you can forget about these now. <!-- .element: class="fragment" -->
 
 ---
 
@@ -183,11 +251,20 @@ Note: // Todo, add tip for opening console fast. We're going to do it alot.
 
 ----
 
-### Exercises #1
+### Exercise #1
 
 - Use `Observable.range()` to write your first Observable, and log its contents to your console.
+
+```js
+var range = Observable.range(3); // Counts to `x`
+```
+
 - Use `Observable.of()` to return an `Array` of numbers and log its contents.
-- Use `Observable.create()`
+
+```js
+var obs = Observable.of('single string');
+```
+
 
 ----
 
@@ -199,3 +276,18 @@ range.subscribe(
     x => console.log(x);
 );
 ```
+
+*  Observable does nothing until it has a <br /> 📥 `subscriber`.
+
+----
+
+```js
+var obs = Observable.of([1, 2, 3]);
+
+obs.subscribe(
+    x => console.log(x); // [1, 2, 3]
+);
+```
+
+*  Observable does nothing until it has a <br /> 📥 `subscriber`.
+* `of()` returns the `array` as a whole, not per value.
