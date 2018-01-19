@@ -32,7 +32,15 @@ Note: Introduce ourselves. What's our experience with RxJS?
 #### Streaming data
 
 ```ts
-Pronto example
+const locationUpdates =
+    Observable.webSocket('ws://some-live-shiplocation-api')
+
+locationUpdates
+    .subscribe(newShipLocation => {
+        // update UI with new location i.e.
+        this.state.shiplocation = newShipLocation
+    })
+
 ```
 
 ----
