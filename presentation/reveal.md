@@ -102,6 +102,7 @@ export class Component {
     * `Redux-observable`
     * `NgRx`
     * `VueRx`
+    * ...
 * Java/Scala also have their implementation.
 
 #### 🤩 So plenty of stuff to have fun with! 🤩 <!-- .element: class="fragment" -->
@@ -175,3 +176,26 @@ open index.html
 * Check your console!
 
 Note: // Todo, add tip for opening console fast. We're going to do it alot.
+
+---
+
+# Exercises
+
+----
+
+### Exercises #1
+
+- Use `Observable.range()` to write your first Observable, and log its contents to your console.
+- Use `Observable.of()` to return an `Array` of numbers and log its contents.
+- Use `Observable.create()`
+
+----
+
+```js
+var range = Observable.range(3);
+// Range generates an Observable that counts from 1 to X.
+
+range.subscribe(
+    x => console.log(x);
+);
+```

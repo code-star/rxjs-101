@@ -47,6 +47,7 @@ Intro
     - Observable
         - Databron
         - `empty()`
+        - `of()`
         - `from()`
         - `fromEvent()`
         - `interval()`
