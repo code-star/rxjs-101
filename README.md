@@ -9,6 +9,7 @@
 - [ ] Slides/presentatie maken.
     - [ ] Aantal excercises bepalen
     - [ ] Rode draad tussen excercises vastleggen.
+    - [ ] Note: Moeten we nog nadenken over non-Mac gebruikers?
 
 
 ### Requirements
@@ -45,6 +46,11 @@ Intro
 - Het Rx contract:
     - Observable
         - Databron
+        - `empty()`
+        - `from()`
+        - `fromEvent()`
+        - `interval()`
+        - `merge()`
     - Operators
         - Transformaties op de databron
     - Subscriber

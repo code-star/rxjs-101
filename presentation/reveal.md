@@ -84,7 +84,7 @@ Common `event bus` example, ie. Angular
 * Using the same language throughout <!-- .element: class="fragment" -->
 * Ensures we're all using the same things for the same reasons. <!-- .element: class="fragment" -->
 
-Note: Todo
+Note: // Todo
 
 ---
 
@@ -118,5 +118,26 @@ Note: Todo
 
 ---
 
-#### TODO
+## Let's tango! 💃
 
+In your terminal: 
+
+```sh
+git clone https://github.com/code-star/rxjs-101.git
+
+cd rxjs-101
+```
+
+* Open the folder in your favorite IDE/text editor.
+
+----
+
+* Open index.html in your favorite browser (Chrome/Safari/Firefox recommended)
+
+```sh
+open index.html
+```
+
+* Check your console!
+
+Note: // Todo, add tip for opening console fast. We're going to do it alot.
