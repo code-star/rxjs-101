@@ -1,4 +1,6 @@
 ## Presentation
+`cd ../`
+
 Installation:
 `npm install`
 
