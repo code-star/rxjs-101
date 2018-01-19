@@ -33,7 +33,7 @@ Tale.
 
 ## Chapter 3
 
-```javascript
+```html
 <html>
     <head></head>
     <body></body>
@@ -41,3 +41,23 @@ Tale.
 ```
 
 [<](#/)
+
+---
+
+### Chapter 3a.
+
+```typescript
+import { catchError } from 'rxjs/operators'
+```
+
+----
+
+Test.
+
+---
+
+# Fragments
+
+* Item 1 <!-- .element: class="fragment" -->
+* Item 2 <!-- .element: class="fragment" -->
+* Item 3 <!-- .element: class="fragment" -->
