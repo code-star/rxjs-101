@@ -6,9 +6,9 @@
 
 - [X] Contact met Academy voor aanmelding training/trainers
 - [ ] Academy formulieren invullen en sturen.
-- [ ] Aantal excercises bepalen
-- [ ] Rode draad tussen excercises vastleggen.
 - [ ] Slides/presentatie maken.
+    - [ ] Aantal excercises bepalen
+    - [ ] Rode draad tussen excercises vastleggen.
 
 
 ### Requirements
