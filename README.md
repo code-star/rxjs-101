@@ -5,7 +5,7 @@
 > X = done
 
 - [X] Contact met Academy voor aanmelding training/trainers
-- [ ] Academy formulieren invullen en sturen.
+- [X] Academy formulieren invullen en sturen.
 - [ ] Slides/presentatie maken.
     - [ ] Aantal excercises bepalen
     - [ ] Rode draad tussen excercises vastleggen.
