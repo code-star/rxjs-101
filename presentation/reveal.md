@@ -55,8 +55,42 @@ this.update$ = Observable.merge(ticks, frames, seconds)
 
 #### Communicating between application components
 
+Service
 ```ts
-Common `event bus` example, ie. Angular
+export class EventBusService {
+    private events = new Subject<Event>();
+
+    getEvents(): Observable<Event> {
+        return this.events.asObservable();
+    }
+
+    sendEvent(event: Event): void {
+        this.events.next(event);
+    }
+}
+```
+
+----
+
+#### Communicating between application components
+
+Component
+```ts
+export class Component {
+    constructor(private eventsService: EventBusService) {
+        this.eventsService.getEvents()
+            .filter(event => event.type === 'InterestingEvent')
+            .subscribe(this.handleEvents)
+    }
+
+    doAction(): void {
+        this.eventsService.sendEvent(new TestEvent());
+    }
+
+    handleEvents(event: Event) { 
+        //... do things 
+    }
+}
 ```
 
 ---
