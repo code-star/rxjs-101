@@ -29,14 +29,9 @@
 dd |Fase tijdens training | Tijd | Beoogd leerresultaat | KIT werkvorm + 70-20-10 | Materiaal | Ruimte voor verdere toelichting 
 ---
 (inhoud, voorbeelden/praktijkcases, etc.)
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
