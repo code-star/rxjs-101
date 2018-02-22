@@ -1,3 +1,8 @@
+# Notes voor onszelf!
+- Link naar Lesplan en Werkvormen PDF: 
+https://connect.ordina.nl/WieWatWaar/CentraleAfdelingen/Academy/Pages/Academy-trainers.aspx
+
+
 # Lesplan
 
 
