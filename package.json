@@ -4,6 +4,7 @@
   "description": "## Todo > W = waiting for > X = done",
   "main": "index.js",
   "scripts": {
+    "start": "npm run reveal",
     "test": "echo \"Error: no test specified\" && exit 1",
     "reveal": "./node_modules/reveal-md/bin/cli.js presentation/reveal.md -w",
     "reveal-export": "./node_modules/reveal-md/bin/cli.js presentation/reveal.md --static docs"
