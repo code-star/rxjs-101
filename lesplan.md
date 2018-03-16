@@ -12,12 +12,14 @@ https://connect.ordina.nl/WieWatWaar/CentraleAfdelingen/Academy/Pages/Academy-tr
 - Extra (co-)trainers: Martin van Dam
 - Deelnemers min: 6  max:  10
 - Omschrijving training: 
-- Doelgroep: Interne medewerkers, denk bijvoorbeeld ook aan Young Professionals in de Front-end branche.
+
+
+- Doelgroep: Interne medewerkers, denk bijvoorbeeld ook aan Young Professionals in de Front-end branche, maar ook externen wanneer er genoeg animo is. Iedereen die in principe in de front-end Reactive wil gaan werken kan hier baat bij hebben.
 ### 2. Resultaat
 - Beoogde leerresultaten:
-1. 
-2. 
-3. 
+1. Basis kennis van RxJS en dit kunnen toepassen.
+2. Weten waar RxJS wel en niet gebruikt kan en moet worden.
+3. Beter begrip over wat Reactive Programming inhoud en dit kunnen toepassen. 
 4. 
 - Wat weet en kan de deelnemer na afloop. Schrijf op welke doelen de deelnemer na afloop van de training heeft bereikt in de vorm van leerresultaten. 
 	~~Bij voorkeur niet meer dan 4 doelen. Probeer dit zo specifiek (SMART) mogelijk te maken. Voorbeelden: Deelnemer kan uitleggen aan andere deelnemers wat de voordelen zijn van Agile werken. Of: De deelnemer kan na de training een scrumsessie faciliteren doordat hij dit in de training heeft geoefend.~~
