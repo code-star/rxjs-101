@@ -11,11 +11,20 @@ https://connect.ordina.nl/WieWatWaar/CentraleAfdelingen/Academy/Pages/Academy-tr
 - Naam trainer: Bjorn Schijff
 - Extra (co-)trainers: Martin van Dam
 - Deelnemers min: 6  max:  10
-- Omschrijving training: 
+- Omschrijving training:
 
+Maak kennis met de wereld van functional reactive programming in de frontend met deze RxJS 101 cursus! Leer hoe je de full potential van RxJS benut in je eigen project. Of je nu werkt in frontend of backend (JavaScript).
 
-- Doelgroep:
- Interne medewerkers, denk bijvoorbeeld ook aan Young Professionals in de Front-end branche, maar ook externen wanneer er genoeg animo is. Iedereen die in principe in de front-end Reactive wil gaan werken kan hier baat bij hebben.
+Programma
+* Introductie in reactive programming
+* Wat is RxJS
+* RxJS Operators
+* Praktijktoepassingen
+
+Trainers
+Bjorn Schijff & Martin van Dam werken als frontend software engineers bij de data-driven unit Codestar. Functional reactive programming is dagelijkse kost in de projecten van Codestar waarbij zoal in de frontend als in de backend Rx veelvuldig gebruikt wordt.
+
+- Doelgroep: Interne medewerkers, denk bijvoorbeeld ook aan Young Professionals in de Front-end branche, maar ook externen wanneer er genoeg animo is. Iedereen die in principe in de front-end Reactive wil gaan werken kan hier baat bij hebben.
 
 ### 2. Resultaat
 **Beoogde leerresultaten:**

@@ -10,6 +10,10 @@
     - [ ] Aantal excercises bepalen
     - [ ] Rode draad tussen excercises vastleggen.
     - [ ] Note: Moeten we nog nadenken over non-Mac gebruikers?
+    
+- [ ] Invullen lesplan
+    - [ ] Allebei eigen variant klaarmaken, vergelijken.
+    - [ ] Invullen in Word template, verzenden naar Academy.
 
 
 ### Requirements
