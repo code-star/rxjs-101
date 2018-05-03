@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/code-star/rxjs-101#readme",
   "devDependencies": {
-    "reveal-md": "1.1.0"
+    "reveal-md": "2.0.3"
   }
 }
