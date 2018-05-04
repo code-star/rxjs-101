@@ -65,6 +65,7 @@ this.update$ = Observable.merge(ticks, frames, seconds)
 
 Service
 ```ts
+// Misschien geen Subjects laten zien in onze voorbeelden? Gaan we vragen over krijgen.
 export class EventBusService {
     private events = new Subject<Event>();
 
@@ -108,7 +109,7 @@ export class Component {
 * Used heavily by `Angular`
 * Lot's of adoption in libraries like 
     * `Redux-observable`
-    * `NgRx`
+    * `NgRx` // Dit is Redux voor Angular. Niet echt relevant voorbeeld.
     * `VueRx`
     * ...
 * Java/Scala also have their implementation.
@@ -126,8 +127,6 @@ export class Component {
 * A set of rules agreed upon <!-- .element: class="fragment" -->
 * Using the same language throughout <!-- .element: class="fragment" -->
 * Ensures we're all using the same things for the same reasons. <!-- .element: class="fragment" -->
-
-Note: // Todo
 
 ---
 
@@ -197,11 +196,13 @@ subscription.unsubscribe();
 #### Operators
 
 * Operators are small operations you perform on top of your Observable. <!-- .element: class="fragment" -->
-* You can use multiple operators (chaining) to transform the data to your liking. <!-- .element: class="fragment" -->
+* You can use multiple operators to transform the data to your liking. <!-- .element: class="fragment" -->
+* This is done using the `pipe()` method, introduced in RxJS 6.0.0.
+// Vraagje: Ik weet eigenlijk niet hoe de `pipe` method werkt als je geen Typescript gebruikt? Moeten we dit noemen?
 
 ```js
 var obs = Observable.from([1, 2, 3])
-                    .map(x => x * 2);
+		.pipe(map(x => x * 2));
 
 obs.subscribe(
     next => { console.log(next); }, // 2, 4, 6
@@ -216,7 +217,6 @@ obs.subscribe(
 ----
 
 #### But wait, there's more! 🙀
-
 
 * Subject <!-- .element: class="fragment" -->
     * BehaviorSubject
@@ -243,6 +243,7 @@ cd rxjs-101
 
 ----
 
+// Hebben we dit al voorbereid?
 * Open index.html in your favorite browser (Chrome/Safari/Firefox recommended)
 
 ```sh
