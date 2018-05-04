@@ -265,7 +265,7 @@ Note: // Todo, add tip for opening console fast. We're going to do it alot.
 - Use `Observable.range()` to write your first Observable, and log its contents to your console.
 
 ```js
-var range = Observable.range(3); // Counts to `x`
+var range = Observable.range(1, 3); // Counts to `x`
 ```
 
 - Use `Observable.of()` to return an `Array` of numbers and log its contents.
@@ -278,7 +278,7 @@ var obs = Observable.of('single string');
 ----
 
 ```js
-var range = Observable.range(3);
+var range = Observable.range(1, 3);
 // Range generates an Observable that counts from 1 to X.
 
 range.subscribe(
