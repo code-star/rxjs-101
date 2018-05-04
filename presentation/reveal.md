@@ -116,6 +116,22 @@ export class Component {
 
 ---
 
+### Disclaimer
+
+All examples are based on RxJS v6
+
+```js
+// RxJS v5
+import * as Rx from 'rxjs'
+const observable = Rx.Observable.from(...)
+
+// RxJS v6
+import { from } from 'rxjs'
+const observable = from(...)
+```
+
+---
+
 # The RxJS Contract
 
 ---
