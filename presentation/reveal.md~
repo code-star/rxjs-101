@@ -65,7 +65,6 @@ this.update$ = Observable.merge(ticks, frames, seconds)
 
 Service
 ```ts
-// Misschien geen Subjects laten zien in onze voorbeelden? Gaan we vragen over krijgen.
 export class EventBusService {
     private events = new Subject<Event>();
 
@@ -109,7 +108,7 @@ export class Component {
 * Used heavily by `Angular`
 * Lot's of adoption in libraries like 
     * `Redux-observable`
-    * `NgRx` // Dit is Redux voor Angular. Niet echt relevant voorbeeld.
+    * `NgRx`
     * `VueRx`
     * ...
 * Java/Scala also have their implementation.
@@ -127,6 +126,8 @@ export class Component {
 * A set of rules agreed upon <!-- .element: class="fragment" -->
 * Using the same language throughout <!-- .element: class="fragment" -->
 * Ensures we're all using the same things for the same reasons. <!-- .element: class="fragment" -->
+
+Note: // Todo
 
 ---
 
@@ -196,12 +197,11 @@ subscription.unsubscribe();
 #### Operators
 
 * Operators are small operations you perform on top of your Observable. <!-- .element: class="fragment" -->
-* You can use multiple operators to transform the data to your liking. <!-- .element: class="fragment" -->
-* This is done using the `pipe()` method, introduced in RxJS 6.0.0.
+* You can use multiple operators (chaining) to transform the data to your liking. <!-- .element: class="fragment" -->
 
 ```js
 var obs = Observable.from([1, 2, 3])
-		.pipe(map(x => x * 2));
+                    .map(x => x * 2);
 
 obs.subscribe(
     next => { console.log(next); }, // 2, 4, 6
@@ -216,6 +216,7 @@ obs.subscribe(
 ----
 
 #### But wait, there's more! 🙀
+
 
 * Subject <!-- .element: class="fragment" -->
     * BehaviorSubject
@@ -240,14 +241,8 @@ cd rxjs-101
 
 * Open the folder in your favorite IDE/text editor.
 
-```sh
-code . 
-```
-For Visual Studio Code.
-
 ----
 
-// Hebben we dit al voorbereid?
 * Open index.html in your favorite browser (Chrome/Safari/Firefox recommended)
 
 ```sh
@@ -266,26 +261,23 @@ Note: // Todo, add tip for opening console fast. We're going to do it alot.
 
 ### Exercise #1
 
-- Use `range()` to write your first Observable, and log its contents to your console.
+- Use `Observable.range()` to write your first Observable, and log its contents to your console.
 
 ```js
-import { range } from 'rxjs';
-var range = range(3); // Counts to `x`
+var range = Observable.range(3); // Counts to `x`
 ```
 
-- Use `of()` to return an `Array` of numbers and log its contents.
+- Use `Observable.of()` to return an `Array` of numbers and log its contents.
 
 ```js
-import { of } from 'rxjs';
-var obs = of('single string');
+var obs = Observable.of('single string');
 ```
 
 
 ----
 
 ```js
-import { range } from 'rxjs';
-var range = range(3);
+var range = Observable.range(3);
 // Range generates an Observable that counts from 1 to X.
 
 range.subscribe(
@@ -307,59 +299,3 @@ obs.subscribe(
 
 *  Observable does nothing until it has a <br /> 📥 `subscriber`.
 * `of()` returns the `array` as a whole, not per value.
-
----
-
-# Operators
-
-----
-
-- We've talked about operators for a little bit.
-- But there's more! 
-
-----
-
-* Transformation like `map()`
-* Filtering lik `filter()`
-* Utility like `tap()`
-* Error handling like `catchError()`
-* Combination like `merge()`
-* Flattening like `switch()`
-* Multicasting like `share()`
-* And plenty of combined operators, like `switchMap()` or `mergeMap()`
-
-----
-
-### Todo: Add examples for all categories? Provide a simple list?
-
----
-
-# Common mistakes
-- By André Staltz
-
-----
-
-* Using Subjects too much. Use Observable.create!
-* Using Observable.create too much. Use Creation operators
-* Subscribing too much and unsubscribing too much
-* Subject.next inside subscribe
-* Subscribe inside subscribe
-
----
-
-# Excercises
-
-----
-
-## Suggestions:
-
-* Refactor a piece of existing code to remove common mistakes
-* Make a complex piece of code simpler by better using/combining operators
-* ???
-
----
-
-# Final review; 
-- reflect on how easy it can be to read RxJS code
-- Functional programming !!!
-- RxJS and Reactive programming is a mindset. Get in the habit of doing it and it'll get easier.
