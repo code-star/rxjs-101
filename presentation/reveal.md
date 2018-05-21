@@ -33,7 +33,7 @@ Note: Introduce ourselves. What's our experience with RxJS?
 
 ```ts
 const locationUpdates =
-    Observable.webSocket('ws://some-live-shiplocation-api')
+    webSocket('ws://some-live-shiplocation-api')
 
 locationUpdates
     .subscribe(newShipLocation => {
@@ -48,14 +48,14 @@ locationUpdates
 #### Games
 
 ```ts
-const ticks = Observable.interval(this.tickMs)
+const ticks = interval(this.tickMs)
     .map(() => 'tick')
-const frames = Observable.interval(this.fpsMs)
+const frames = interval(this.fpsMs)
     .map(() => 'frame')
-const seconds = Observable.interval(1000)
+const seconds = interval(1000)
     .map(() => 'second')
 
-this.update$ = Observable.merge(ticks, frames, seconds)
+this.update$ = merge(ticks, frames, seconds)
     .share()
 ```
 
@@ -109,12 +109,26 @@ export class Component {
 * Used heavily by `Angular`
 * Lot's of adoption in libraries like 
     * `Redux-observable`
-    * `NgRx` // Dit is Redux voor Angular. Niet echt relevant voorbeeld.
     * `VueRx`
-    * ...
 * Java/Scala also have their implementation.
 
 #### 🤩 So plenty of stuff to have fun with! 🤩 <!-- .element: class="fragment" -->
+
+---
+
+### Disclaimer
+
+All examples are based on RxJS v6
+
+```js
+// RxJS v5
+import * as Rx from 'rxjs'
+const observable = Rx.Observable.from(...)
+
+// RxJS v6
+import { from } from 'rxjs'
+const observable = from(...)
+```
 
 ---
 
@@ -151,7 +165,7 @@ export class Component {
 
 #### Subscribers
 ```js
-var obs = Observable.from([1, 2, 3]);
+var obs = from([1, 2, 3]);
 
 obs.subscribe(
     next => { console.log(next); },
@@ -170,8 +184,7 @@ obs.subscribe(
 #### Subscription
 
 ```js
-var obs = Observable.from([1, 2, 3])
-                    .delay(1);
+var obs = from([1, 2, 3]).delay(1);
 
 var subscription = obs.subscribe(
     next => { console.log(next); },
@@ -200,11 +213,14 @@ subscription.unsubscribe();
 * This is done using the `pipe()` method, introduced in RxJS 6.0.0.
 
 ```js
-var obs = Observable.from([1, 2, 3])
-		.pipe(map(x => x * 2));
-
+var obs = from([1, 2, 3])
+    .pipe(
+        map(x => x * 2),
+        filter(x => x < 4)
+    );
+    
 obs.subscribe(
-    next => { console.log(next); }, // 2, 4, 6
+    next => { console.log(next); }, // 2, 4
     error => { },
     complete => { console.log('I\'m done!'); }
 )
@@ -298,7 +314,7 @@ range.subscribe(
 ----
 
 ```js
-var obs = Observable.of([1, 2, 3]);
+var obs = of([1, 2, 3]);
 
 obs.subscribe(
     x => console.log(x); // [1, 2, 3]
