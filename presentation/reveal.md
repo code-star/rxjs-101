@@ -33,7 +33,7 @@ Note: Introduce ourselves. What's our experience with RxJS?
 
 ```ts
 const locationUpdates =
-    Observable.webSocket('ws://some-live-shiplocation-api')
+    webSocket('ws://some-live-shiplocation-api')
 
 locationUpdates
     .subscribe(newShipLocation => {
@@ -48,14 +48,14 @@ locationUpdates
 #### Games
 
 ```ts
-const ticks = Observable.interval(this.tickMs)
+const ticks = interval(this.tickMs)
     .map(() => 'tick')
-const frames = Observable.interval(this.fpsMs)
+const frames = interval(this.fpsMs)
     .map(() => 'frame')
-const seconds = Observable.interval(1000)
+const seconds = interval(1000)
     .map(() => 'second')
 
-this.update$ = Observable.merge(ticks, frames, seconds)
+this.update$ = merge(ticks, frames, seconds)
     .share()
 ```
 
@@ -109,12 +109,26 @@ export class Component {
 * Used heavily by `Angular`
 * Lot's of adoption in libraries like 
     * `Redux-observable`
-    * `NgRx` // Dit is Redux voor Angular. Niet echt relevant voorbeeld.
     * `VueRx`
-    * ...
 * Java/Scala also have their implementation.
 
 #### 🤩 So plenty of stuff to have fun with! 🤩 <!-- .element: class="fragment" -->
+
+---
+
+### Disclaimer
+
+All examples are based on RxJS v6
+
+```js
+// RxJS v5
+import * as Rx from 'rxjs'
+const observable = Rx.Observable.from(...)
+
+// RxJS v6
+import { from } from 'rxjs'
+const observable = from(...)
+```
 
 ---
 
@@ -151,7 +165,7 @@ export class Component {
 
 #### Subscribers
 ```js
-var obs = Observable.from([1, 2, 3]);
+var obs = from([1, 2, 3]);
 
 obs.subscribe(
     next => { console.log(next); },
@@ -170,8 +184,7 @@ obs.subscribe(
 #### Subscription
 
 ```js
-var obs = Observable.from([1, 2, 3])
-                    .delay(1);
+var obs = from([1, 2, 3]).delay(1);
 
 var subscription = obs.subscribe(
     next => { console.log(next); },
@@ -198,14 +211,16 @@ subscription.unsubscribe();
 * Operators are small operations you perform on top of your Observable. <!-- .element: class="fragment" -->
 * You can use multiple operators to transform the data to your liking. <!-- .element: class="fragment" -->
 * This is done using the `pipe()` method, introduced in RxJS 6.0.0.
-// Vraagje: Ik weet eigenlijk niet hoe de `pipe` method werkt als je geen Typescript gebruikt? Moeten we dit noemen?
 
 ```js
-var obs = Observable.from([1, 2, 3])
-		.pipe(map(x => x * 2));
+var obs = from([1, 2, 3])
+    .pipe(
+        map(x => x * 2),
+        filter(x => x < 4)
+    );
 
 obs.subscribe(
-    next => { console.log(next); }, // 2, 4, 6
+    next => { console.log(next); }, // 2, 4
     error => { },
     complete => { console.log('I\'m done!'); }
 )
@@ -262,13 +277,13 @@ Note: // Todo, add tip for opening console fast. We're going to do it alot.
 
 ### Exercise #1
 
-- Use `Observable.range()` to write your first Observable, and log its contents to your console.
+- Use `range()` to write your first Observable, and log its contents to your console.
 
 ```js
-var range = Observable.range(1, 3); // Counts to `x`
+var range = range(3); // Counts to `x`
 ```
 
-- Use `Observable.of()` to return an `Array` of numbers and log its contents.
+- Use `of()` to return an `Array` of numbers and log its contents.
 
 ```js
 var obs = Observable.of('single string');
@@ -278,7 +293,7 @@ var obs = Observable.of('single string');
 ----
 
 ```js
-var range = Observable.range(1, 3);
+var range = range(3);
 // Range generates an Observable that counts from 1 to X.
 
 range.subscribe(
@@ -291,7 +306,7 @@ range.subscribe(
 ----
 
 ```js
-var obs = Observable.of([1, 2, 3]);
+var obs = of([1, 2, 3]);
 
 obs.subscribe(
     x => console.log(x); // [1, 2, 3]
