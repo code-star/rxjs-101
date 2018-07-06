@@ -17,7 +17,7 @@ Note: Introduce ourselves. What's our experience with RxJS?
 * Better readable code 🤓<!-- .element: class="fragment" -->
 * Data flow 🌊<!-- .element: class="fragment" -->
 * Easier and safer data transformations 🤖<!-- .element: class="fragment" -->
-* Functional (!) 🙌<!-- .element: class="fragment" -->
+* Functional and Reactive (!) 🙌<!-- .element: class="fragment" -->
 
 ---
 
@@ -177,7 +177,8 @@ obs.subscribe(
 ```
 
 * A subscriber activates an Observable. <!-- .element: class="fragment" -->
-* Within a subscriber you handle every value, an error or when it's done. <!-- .element: class="fragment" -->
+* Within a subscriber you handle every value, an error, or when it's done. <!-- .element: class="fragment" -->
+* Without error handling, the subscription will end immediately <!-- .element: class="fragment" -->
 
 ----
 
@@ -372,7 +373,7 @@ Part three
 ----
 
 ### Exercise #5
-...
+Laten zien hoe je een 'foute' subject kunt herschrijven naar een observable
 
 ---
 
