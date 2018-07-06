@@ -49,11 +49,11 @@ locationUpdates
 
 ```ts
 const ticks = interval(this.tickMs)
-    .map(() => 'tick')
+    .pipe(map() => 'tick'))
 const frames = interval(this.fpsMs)
-    .map(() => 'frame')
+    .pipe(map() => 'frame'))
 const seconds = interval(1000)
-    .map(() => 'second')
+    .pipe(map() => 'second'))
 
 this.update$ = merge(ticks, frames, seconds)
     .share()
