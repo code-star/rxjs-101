@@ -1,8 +1,16 @@
 ## Welcome
 ### To RxJS 101 <!-- .element: class="fragment" -->
-Introduction <!-- .element: class="fragment" -->
 
-Note: Introduce ourselves. What's our experience with RxJS?
+---
+<img src="bjorn.jpg" width="100" style="border-radius:100%;">
+#### Bjorn Schijff
+<small>Frontend Software Engineer @ Politie /</small>
+<img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative; top: -8px;">
+
+<img src="martin.jpg" width="100" style="border-radius:100%;">
+#### Martin van Dam
+<small>Frontend Software Engineer @ Port of Rotterdam /</small>
+<img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative; top: -8px;">
 
 ---
 
