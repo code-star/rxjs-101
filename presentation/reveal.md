@@ -376,7 +376,17 @@ Hint: use `typeof x === 'string'` and `toUpperCase()`
 ---
 
 # Error handling
-...
+* By default, the Observable will finish on errors
+* `catchError` operator will help handle errors
+
+```js
+const faultyArray = [0, new Error('Index 1 not found!'), 2]
+const faultyObservable = from(faultyArray).pipe(
+    catchError((err, caught) => {
+        return someValueOnError
+    })
+)
+```
 
 ---
 
@@ -430,22 +440,14 @@ Part four
 ----
 
 ### Exercise #7
-Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
-
-Hint; not all types have moves, and you only need (should have) 1 subscribe.
+?? Make a complex piece of code simpler by better using/combining operators ??
 
 ----
 
 ### Exercise #8
-...tbd
+Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
 
----
-
-## Suggestions:
-
-* Refactor a piece of existing code to remove common mistakes
-* Make a complex piece of code simpler by better using/combining operators
-* ???
+Hint; not all types have moves, and you only need (should have) 1 subscribe.
 
 ---
 
