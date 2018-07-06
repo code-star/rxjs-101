@@ -348,6 +348,10 @@ obs.subscribe(
 
 ### Todo: Add examples for all categories? Provide a simple list?
 
+--- 
+
+Excersises!!!!
+
 ---
 
 # Common mistakes
@@ -363,7 +367,16 @@ obs.subscribe(
 
 ---
 
+Excersises voor bad practices verbeteren
+
+---
+
+Uitleg omtrent hot observables en verwanten.
+
+---
+
 # Excercises
+-> switch(), merge(), share(), hot observable zaken.
 
 ----
 
