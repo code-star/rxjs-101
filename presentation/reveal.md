@@ -210,7 +210,7 @@ subscription.unsubscribe();
 
 * Operators are small operations you perform on top of your Observable. <!-- .element: class="fragment" -->
 * You can use multiple operators to transform the data to your liking. <!-- .element: class="fragment" -->
-* This is done using the `pipe()` method, introduced in RxJS 6.0.0.
+* This is done using the pipe() method, introduced in RxJS 6.0.0. <!-- .element: class="fragment" -->
 
 ```js
 var obs = from([1, 2, 3])
@@ -251,7 +251,7 @@ In your terminal:
 ```sh
 git clone https://github.com/code-star/rxjs-101.git
 
-cd rxjs-101
+cd rxjs-101/exercises
 ```
 
 * Open the folder in your favorite IDE/text editor.
@@ -261,68 +261,23 @@ code .
 ```
 For Visual Studio Code.
 
-----
-
-// Hebben we dit al voorbereid?
-* Open index.html in your favorite browser (Chrome/Safari/Firefox recommended)
-
-```sh
-open index.html
-```
-
-* Check your console!
-
-Note: // Todo, add tip for opening console fast. We're going to do it alot.
-
 ---
 
 # Exercises
+Part one
 
 ----
 
 ### Exercise #1
+Use `range()` to write your first Observable, and log its contents to your console.
 
-- Use `range()` to write your first Observable, and log its contents to your console.
-
-```js
-import { range } from 'rxjs';
-var range = range(3); // Counts to `x`
-```
-
-- Use `of()` to return an `Array` of numbers and log its contents.
+Remember that an Observable does nothing on it's own!
 
 ```js
-import { of } from 'rxjs';
-var obs = of('single string');
+const { range } = rxjs;
+const rangeObservable = range(1, 3);
+// ...
 ```
-
-
-----
-
-```js
-import { range } from 'rxjs';
-var range = range(3);
-// Range generates an Observable that counts from 1 to X.
-
-range.subscribe(
-    x => console.log(x);
-);
-```
-
-*  Observable does nothing until it has a <br /> 📥 `subscriber`.
-
-----
-
-```js
-var obs = of([1, 2, 3]);
-
-obs.subscribe(
-    x => console.log(x); // [1, 2, 3]
-);
-```
-
-*  Observable does nothing until it has a <br /> 📥 `subscriber`.
-* `of()` returns the `array` as a whole, not per value.
 
 ---
 
@@ -348,9 +303,53 @@ obs.subscribe(
 
 ### Todo: Add examples for all categories? Provide a simple list?
 
---- 
+---
 
-Excersises!!!!
+# Exercises
+Part two
+
+----
+
+### Exercise #2
+Use `filter()` to let the observable only return the numbers that are lower than 10
+
+```js
+const { from, pipe } = rxjs;
+const { filter, map } = rxjs.operators;
+
+const observable = from([1, 2, 4, 8, 16, 32]).pipe(
+    // apply filtering here... //
+)
+
+observable.subscribe(value => {
+    console.log(value) // should log the values 1, 2, 4, 8
+})
+```
+
+----
+
+### Exercise #3
+Use `map()` to multiply the values by 2
+
+```js
+const { from, pipe } = rxjs;
+const { filter, map } = rxjs.operators;
+
+const observable = from([1, 2, 4, 8, 16, 32]).pipe(
+    // apply transformations here... //
+)
+
+observable.subscribe(value => {
+    console.log(value) // should log the values 2, 3, 8, 16, 32, 64
+})
+```
+
+----
+
+### Exercise #4
+Combine `filter()`with `map()`.
+
+Hint: use `typeof x === 'string'` and `toUpperCase()`
 
 ---
 
@@ -367,18 +366,51 @@ Excersises!!!!
 
 ---
 
-Excersises voor bad practices verbeteren
-
----
-
-Uitleg omtrent hot observables en verwanten.
-
----
-
-# Excercises
--> switch(), merge(), share(), hot observable zaken.
+# Exercises
+Part three
 
 ----
+
+### Exercise #5
+...
+
+---
+
+# Cold versus Hot
+Cold Observable
+```js
+new Observable((observer) => {
+    // 'private' producer
+    const producer = timer(5000)
+    producer.subscribe(...)
+})
+```
+
+Hot Observable
+```js
+// 'public' producer for reusability
+const producer = timer(5000)
+new Observable((observer) => {
+  producer.subscribe(...)
+})
+```
+
+---
+
+# Exercises
+Part four
+
+----
+
+### Exercise #6
+...
+
+----
+
+### Exercise #7
+...
+
+---
 
 ## Suggestions:
 
