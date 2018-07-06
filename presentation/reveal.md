@@ -367,13 +367,31 @@ Hint: use `typeof x === 'string'` and `toUpperCase()`
 
 ---
 
+# Error handling
+...
+
+---
+
 # Exercises
 Part three
 
 ----
 
 ### Exercise #5
-Laten zien hoe je een 'foute' subject kunt herschrijven naar een observable
+A: There are two things that are going wrong in this code. Can you see what they are? Adjust the code to fix those problems.
+
+Hint: Run the example first and check the console log.
+
+B: Rewrite this code so you don't need a Subject anymore.
+
+Hint: the `from` creator and the `map` operator could help here.
+
+----
+
+### Exercise #6
+A part of this exercise is given business logic, but we need the Observable to complete.
+
+Add operators to make sure we handle any errors given by the Observable so it completes again.
 
 ---
 
@@ -403,13 +421,15 @@ Part four
 
 ----
 
-### Exercise #6
-...
+### Exercise #7
+Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
+
+Hint; not all types have moves, and you only need (should have) 1 subscribe.
 
 ----
 
-### Exercise #7
-...
+### Exercise #8
+...tbd
 
 ---
 
