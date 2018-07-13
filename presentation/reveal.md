@@ -73,7 +73,6 @@ this.update$ = merge(ticks, frames, seconds)
 
 Service
 ```ts
-// Misschien geen Subjects laten zien in onze voorbeelden? Gaan we vragen over krijgen.
 export class EventBusService {
     private events = new Subject<Event>();
 
@@ -155,9 +154,9 @@ const observable = from(...)
 ### So, the RxJS Contract
 
 * Observable
-* Operators
 * Subscribers
 * Subscription
+* Operators
 * Subject
 
 ----
@@ -173,7 +172,7 @@ const observable = from(...)
 
 #### Subscribers
 ```js
-var obs = from([1, 2, 3]);
+const obs = from([1, 2, 3]);
 
 obs.subscribe(
     next => { console.log(next); },
@@ -193,9 +192,9 @@ obs.subscribe(
 #### Subscription
 
 ```js
-var obs = from([1, 2, 3]).delay(1);
+const obs = from([1, 2, 3]).delay(1);
 
-var subscription = obs.subscribe(
+const subscription = obs.subscribe(
     next => { console.log(next); },
     error => { },
     complete => { console.log('I\'m done!'); }
@@ -219,10 +218,10 @@ subscription.unsubscribe();
 
 * Operators are small operations you perform on top of your Observable. <!-- .element: class="fragment" -->
 * You can use multiple operators to transform the data to your liking. <!-- .element: class="fragment" -->
-* This is done using the pipe() method, introduced in RxJS 6.0.0. <!-- .element: class="fragment" -->
+* This is done using the pipe() method, introduced in RxJS v6 <!-- .element: class="fragment" -->
 
 ```js
-var obs = from([1, 2, 3])
+const obs = from([1, 2, 3])
     .pipe(
         map(x => x * 2),
         filter(x => x < 4)
@@ -300,7 +299,7 @@ const rangeObservable = range(1, 3);
 ----
 
 * Transformation like `map()`
-* Filtering lik `filter()`
+* Filtering like `filter()`
 * Utility like `tap()`
 * Error handling like `catchError()`
 * Combination like `merge()`
@@ -310,7 +309,74 @@ const rangeObservable = range(1, 3);
 
 ----
 
-### Todo: Add examples for all categories? Provide a simple list?
+### `map()`
+Transform the value to another value
+```ts
+const obs = from([1, 2, 3])
+    .pipe(
+        map(x => x * 2) // multiplies each item by 2
+    );
+
+// outputs: 2, 4, 6
+```
+
+----
+
+### `filter()`
+Filter out values you're not interested in
+
+```ts
+const obs = from([1, 2, 3])
+    .pipe(
+        filter(x => x > 2) // only use values that are higher than 2
+    );
+
+// outputs: 3
+```
+
+----
+
+### `tap()`
+Utility for doing side effects but it will not effect the actual data
+
+```ts
+const obs = from([1, 2, 3])
+    .pipe(
+        tap(x => console.log(x)) // logs the value to the console
+    );
+
+// outputs: 1, 2, 3
+```
+
+----
+
+### `catchError()`
+Handle errors and eventually return a fallback value
+
+```ts
+const obs = from([1, new Error('fail here!'), 3])
+    .pipe(
+        catchError((err, caught) => {
+            return null
+        })
+    );
+
+// outputs: 1, null, 3
+```
+
+----
+
+### `merge()`
+Merge multiple Observables together
+
+```ts
+const obs1 = from([1, 2, 3])
+const obs2 = from(['a', 'b', 'c'])
+
+merge(obs1, obs2)
+
+// outputs: 1, 2, 3, 'a', 'b', 'c'
+```
 
 ---
 
@@ -452,6 +518,6 @@ Hint; not all types have moves, and you only need (should have) 1 subscribe.
 ---
 
 # Final review; 
-- reflect on how easy it can be to read RxJS code
+- Reflect on how easy it can be to read RxJS code
 - Functional programming !!!
 - RxJS and Reactive programming is a mindset. Get in the habit of doing it and it'll get easier.
