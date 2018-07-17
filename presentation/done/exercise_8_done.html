@@ -17,10 +17,23 @@
         // Or filter a certain Pokémon ID and retrieve the correct moves.
         // Hint; not all types have moves, and you only need (should have) 1 subscribe.
         const { of, merge } = rxjs;
-        const {  } = rxjs.operators;
+        const { map, concatAll, mergeMap, filter, toArray, defaultIfEmpty } = rxjs.operators;
 
         const pokemonObs = of(pokemon);
         const typesObs = of(types);
+
+        const type = 'psychic';
+        const filtered = pokemonObs.pipe(
+            concatAll(),
+            filter(p => p.id === 50),
+            mergeMap(m => typesObs.pipe(
+                concatAll(),
+                filter(t => t.id === m.type),
+                defaultIfEmpty(Object.assign({}, m, { moves: [] })),
+                map(t => Object.assign({}, m, { moves: t.moves }))
+            )
+            )
+        ).subscribe(console.log);
     </script>
 </body>
 
