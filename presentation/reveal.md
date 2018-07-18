@@ -132,8 +132,12 @@ All examples are based on RxJS v6
 import * as Rx from 'rxjs'
 const observable = Rx.Observable.from(...)
 
-// RxJS v6
+// RxJS v6 - TypeScript
 import { from } from 'rxjs'
+const observable = from(...)
+
+// RxJS v6 - JavaScript
+const { from } = 'rxjs';
 const observable = from(...)
 ```
 
@@ -219,6 +223,9 @@ subscription.unsubscribe();
 * Operators are small operations you perform on top of your Observable. <!-- .element: class="fragment" -->
 * You can use multiple operators to transform the data to your liking. <!-- .element: class="fragment" -->
 * This is done using the pipe() method, introduced in RxJS v6 <!-- .element: class="fragment" -->
+* There's multiple categories of operators. <!-- .element: class="fragment" -->
+
+----
 
 ```js
 const obs = from([1, 2, 3])
@@ -228,14 +235,11 @@ const obs = from([1, 2, 3])
     );
     
 obs.subscribe(
-    next => { console.log(next); }, // 2, 4
+    next => { console.log(next); }, // 2, 4, I'm done!
     error => { },
     complete => { console.log('I\'m done!'); }
 )
 ```
-<!-- .element: class="fragment" -->
-
-* There's multiple categories of operators. <!-- .element: class="fragment" -->
 
 ----
 
@@ -378,6 +382,12 @@ merge(obs1, obs2)
 // outputs: 1, 2, 3, 'a', 'b', 'c'
 ```
 
+----
+
+* There's about a 120 operators. 
+* They're all on https://github.com/ReactiveX/rxjs/tree/master/src
+* It's a bit scary at first, but don't be afraid to just go there and lookup what an operator does.
+
 ---
 
 # Exercises
@@ -498,6 +508,10 @@ new Observable((observer) => {
 })
 ```
 
+⛔️ Advanced stuff! Interested? Look up `share()` and it's friends.<!-- .element: class="fragment" -->
+
+
+
 ---
 
 # Exercises
@@ -506,7 +520,7 @@ Part four
 ----
 
 ### Exercise #7
-?? Make a complex piece of code simpler by better using/combining operators ??
+Fix the bug! 🐛
 
 ----
 
@@ -521,3 +535,11 @@ Hint; not all types have moves, and you only need (should have) 1 subscribe.
 - Reflect on how easy it can be to read RxJS code
 - Functional programming !!!
 - RxJS and Reactive programming is a mindset. Get in the habit of doing it and it'll get easier.
+
+---
+
+Questions? ⁉️
+
+--- 
+
+🙌 Thanks for your attention and attendance! 🙌
