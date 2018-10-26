@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>RxJS exercise 6</title>
 </head>
+
 <body>
     <script src="https://unpkg.com/rxjs@latest/bundles/rxjs.umd.min.js"></script>
     <script>
@@ -16,17 +18,18 @@
         // This is business logic, you cannot change the map().
         const obs = from([1, 2, 3]).pipe(
             map(val => {
-                if(val>=3) {
-                    throw "No, the Observable does not agree with your ways."
+                if (val >= 3) {
+                    throw new Error("No, the Observable does not agree with your ways.")
                 } else {
                     return val;
                 }
             })
         ).subscribe(
             a => console.log(`📥 `, a),
-            (err) => { console.error(`⛔`,err); },
+            (err) => { console.error(`⛔`, err); },
             () => console.log(`👍`, 'Completed! Well done!')
         );
     </script>
 </body>
+
 </html>
