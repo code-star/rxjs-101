@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>RxJS exercise 1</title>
 </head>
+
 <body>
     <script src="https://unpkg.com/rxjs@latest/bundles/rxjs.umd.min.js"></script>
     <script>
         // Exercise 1;
         // Use range() to write your first Observable, and log its contents to your console
-        const { range } = rxjs;
-
-        const rangeObservable = range(1, 3);
+        // The line underneath loads the `range` function from RxJS into your browser.
+        const { range, interval } = rxjs;
+        const { publish, refCount, take, delay, share } = rxjs.operators; 
+        // Start here, have fun!
+        const obs = interval(1000).pipe(
+            // share(),
+            take(5),
+        )
+            
+        obs.subscribe(a => console.log('A', a));
+        setTimeout(() => {
+            obs.subscribe(b => console.log('B', b))
+        }, 1001)
     </script>
 </body>
+
 </html>
