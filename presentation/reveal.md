@@ -283,7 +283,7 @@ Part one
 ### Exercise #1
 Use `range()` to write your first Observable, and log its contents to your console.
 
-Remember that an Observable does nothing on it's own!
+Remember that an Observable does nothing on its own!
 
 ```js
 const { range } = rxjs;
@@ -508,7 +508,7 @@ new Observable((observer) => {
 })
 ```
 
-⛔️ Advanced stuff! Interested? Look up `share()` and it's friends.<!-- .element: class="fragment" -->
+⛔️ Advanced stuff! Interested? Look up `share()` and its friends.<!-- .element: class="fragment" -->
 
 
 
