@@ -626,7 +626,21 @@ this.http.get<ID>(MY_URL).pipe(
 ---
 
 ### Subscription management
- !!!!!! TODO !!!!!!
+
+```js
+const onClick = fromEvent(element, 'click')
+const onScroll = fromEvent(window, 'scroll')
+const onResize = fromEvent(window, 'resize')
+
+onClick.subscribe( ... )
+onScroll.subscribe( ...)
+onResize.subscribe( ... )
+
+// unsubscribe
+onClick.unsubscribe()
+onScroll.unsubscribe()
+onResize.unsubscribe()
+```
 
 ---
 
@@ -639,6 +653,7 @@ Let's say we want to fish out any errors and continue the original stream.
 
 ### Exercise #9
 ...
+management
 
 ---
 
