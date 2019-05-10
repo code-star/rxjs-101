@@ -572,6 +572,18 @@ Fix the bug! 🐛
 
 ### Exercise #8
 
+...
+
+---
+
+### Exercise #9
+
+...
+
+---
+
+### Exercise #10
+
 Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
 
 Hint; not all types have moves, and you only need (should have) 1 subscribe.
