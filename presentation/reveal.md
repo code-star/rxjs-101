@@ -274,19 +274,12 @@ obs.subscribe(
   }
 );
 ```
-<<<<<<< Updated upstream
-||||||| merged common ancestors
-<!-- .element: class="fragment" -->
 
-* There's multiple categories of operators. <!-- .element: class="fragment" -->
-=======
 <!-- .element: class="fragment" -->
-
 ```
 // What happens when we switch the map() and filter() around?
 ```
 <!-- .element: class="fragment" -->
->>>>>>> Stashed changes
 
 ---
 
@@ -597,6 +590,9 @@ Questions? ⁉️
 
 🙌 Thanks for your attention and attendance! 🙌
 
+<div style="float: left; width: 40%;">@Bjeaurn</div>
+<div style="float: right; width: 40%;">@MrtnvDam</div>
+
 ---
 
 ### ⛔️ Advanced stuff ahead!
@@ -630,12 +626,14 @@ this.http.get<ID>(MY_URL).pipe(
 ---
 
 ### Subscription management
-...
+ !!!!!! TODO !!!!!!
 
 ---
 
 ### Exercise #8
-...
+We talked about the `catchError` operator before. But in that scenario (exercise #5), we stopped and completed the stream.
+
+Let's say we want to fish out any errors and continue the original stream. 
 
 ---
 
@@ -651,3 +649,11 @@ Link the two observables to merge a Pokémon Observable with a Pokémon Moves Ob
 Hint; not all types have moves, and you only need (should have) 1 subscribe.
 
 ---
+
+### Exercise #11
+
+This exercise is in Angular on Stackblitz.
+
+We have an application that uses a BehaviorSubject, and keeps local state of some values; but maintains a stream like it was coming from a server.
+
+Refactor it so it doesn't need a BehaviorSubject, works the exact same and in turn make it simpler.
