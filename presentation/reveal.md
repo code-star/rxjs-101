@@ -616,6 +616,17 @@ fromEvent(document, 'click')
 .subscribe(console.log);
 ```
 
+----
+
+```ts
+this.http.get<ID>(MY_URL).pipe(
+  switchMap(id => {
+    const url = MY_SECOND_URL.replace(":thingId", id)
+    return this.http.get(url)
+  })
+)
+```
+
 ---
 
 ### Subscription management
