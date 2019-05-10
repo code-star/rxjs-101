@@ -274,6 +274,19 @@ obs.subscribe(
   }
 );
 ```
+<<<<<<< Updated upstream
+||||||| merged common ancestors
+<!-- .element: class="fragment" -->
+
+* There's multiple categories of operators. <!-- .element: class="fragment" -->
+=======
+<!-- .element: class="fragment" -->
+
+```
+// What happens when we switch the map() and filter() around?
+```
+<!-- .element: class="fragment" -->
+>>>>>>> Stashed changes
 
 ---
 
