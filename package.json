@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm run reveal",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reveal": "./node_modules/reveal-md/bin/cli.js presentation/reveal.md -w",
-    "reveal-export": "./node_modules/reveal-md/bin/cli.js presentation/reveal.md --static docs"
+    "reveal": "reveal-md ./presentation/reveal.md -w",
+    "reveal-export": "reveal-md ./presentation/reveal.md --static docs"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/code-star/rxjs-101#readme",
   "devDependencies": {
-    "reveal-md": "2.0.6"
+    "reveal-md": "^3.0.4"
   }
 }
