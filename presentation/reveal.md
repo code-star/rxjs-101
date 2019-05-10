@@ -394,28 +394,19 @@ const obs = from([1, 2, 3]).pipe(
 
 ### `catchError()`
 
-Handle errors and eventually return a fallback value
+* By default, the Observable will finish on errors
+* catchError operator will help handle errors
 
 ```ts
 const obs = from([1, 2, 3]).pipe(
-  map(n => {
-    if (n === 2) {
-      throw new Error("An error occured");
-    }
-    return n;
-  }),
+  map( ... ),
   catchError((err, caught) => {
-    return EMPTY;
-    // catchError takes an error Observable, handles the error
-    // and either returns the same observable,
-    // or creates a new one that will function.
+    // `catchError` takes an error Observable, handles
+    // the error and either breaks the stream or returns
+    // a new one that functions.
+    // This operator basically works like a `switchMap`
+    return ...
   })
-);
-// scroll down for more
-obs.subscribe(
-  n => console.log(n),
-  e => console.error(e),
-  () => console.log("done")
 );
 ```
 
@@ -501,6 +492,14 @@ Hint: use `typeof x === 'string'` and `toUpperCase()`
 
 ---
 
+### Exercise #5
+
+A part of this exercise is given business logic, but we need the Observable to complete.
+
+Add operators to make sure we handle any errors given by the Observable so it completes again.
+
+---
+
 # Common mistakes
 
 - By André Staltz
@@ -515,45 +514,9 @@ Hint: use `typeof x === 'string'` and `toUpperCase()`
 
 ---
 
-# Error handling
-
-- By default, the Observable will finish on errors
-- `catchError` operator will help handle errors
-
-```js
-const obs = from([1, 2, 3]).pipe(
-  map(n => {
-    if (n === 2) {
-      throw new Error("Something went wrong");
-    }
-    return n;
-  }),
-  catchError((err, caught) => {
-    return EMPTY;
-  })
-);
-// scroll down for more
-obs.subscribe(
-  n => console.log(n),
-  e => console.error(e),
-  () => console.log("done")
-);
-```
-
-````
----
-
 # Exercises
 
 Part three
-
----
-
-### Exercise #5
-
-A part of this exercise is given business logic, but we need the Observable to complete.
-
-Add operators to make sure we handle any errors given by the Observable so it completes again.
 
 ---
 
