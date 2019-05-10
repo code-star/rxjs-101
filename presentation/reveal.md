@@ -394,8 +394,8 @@ const obs = from([1, 2, 3]).pipe(
 
 ### `catchError()`
 
-* By default, the Observable will finish on errors
-* catchError operator will help handle errors
+- By default, the Observable will finish on errors
+- catchError operator will help handle errors
 
 ```ts
 const obs = from([1, 2, 3]).pipe(
@@ -570,26 +570,6 @@ Fix the bug! 🐛
 
 ---
 
-### Exercise #8
-
-...
-
----
-
-### Exercise #9
-
-...
-
----
-
-### Exercise #10
-
-Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
-
-Hint; not all types have moves, and you only need (should have) 1 subscribe.
-
----
-
 # Final review;
 
 - Reflect on how easy it can be to read RxJS code
@@ -603,4 +583,47 @@ Questions? ⁉️
 ---
 
 🙌 Thanks for your attention and attendance! 🙌
-````
+
+---
+
+### ⛔️ Advanced stuff ahead!
+
+---
+
+### `switchMap()` operator
+
+`Projects each source value to an Observable which is merged in the output`
+
+```js
+fromEvent(document, 'click')
+.pipe(
+  // restart counter on every click
+  switchMap(() => interval(1000))
+)
+.subscribe(console.log);
+```
+
+---
+
+### Subscription management
+...
+
+---
+
+### Exercise #8
+...
+
+---
+
+### Exercise #9
+...
+
+---
+
+### Exercise #10
+
+Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
+
+Hint; not all types have moves, and you only need (should have) 1 subscribe.
+
+---
