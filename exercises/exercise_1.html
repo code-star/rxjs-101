@@ -13,17 +13,9 @@
         // Use range() to write your first Observable, and log its contents to your console
         // The line underneath loads the `range` function from RxJS into your browser.
         const { range, interval } = rxjs;
-        const { publish, refCount, take, delay, share } = rxjs.operators; 
+
         // Start here, have fun!
-        const obs = interval(1000).pipe(
-            // share(),
-            take(5),
-        )
-            
-        obs.subscribe(a => console.log('A', a));
-        setTimeout(() => {
-            obs.subscribe(b => console.log('B', b))
-        }, 1001)
+        
     </script>
 </body>
 
