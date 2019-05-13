@@ -623,18 +623,18 @@ this.http.get<ID>(MY_URL).pipe(
 
 ---
 
-### Subscription management
+### Subscription management 😕
 
 ```js
-const onClick = fromEvent(element, 'click')
-const onScroll = fromEvent(window, 'scroll')
-const onResize = fromEvent(window, 'resize')
+const onFocus = fromEvent(input, 'focus')
+const onBlur = fromEvent(input, 'blur')
+const onKeyUp = fromEvent(input, 'keyup')
 
-onClick.subscribe( ... )
-onScroll.subscribe( ...)
-onResize.subscribe( ... )
+onFocus.subscribe(() => validateInput())
+onBlur.subscribe(() => validateInput())
+onKeyUp.subscribe(() => validateInput())
 
-// unsubscribe
+// and when we're done
 onClick.unsubscribe()
 onScroll.unsubscribe()
 onResize.unsubscribe()
@@ -642,7 +642,24 @@ onResize.unsubscribe()
 
 ---
 
+### Subscription management 😎
+
+```js
+const onFocus = fromEvent(input, 'focus')
+const onBlur = fromEvent(input, 'blur')
+const onKeyUp = fromEvent(input, 'keyup')
+const events = merge(onFocus, onBlur, onKeyUp)
+
+events.subscribe(() => validateInput())
+
+// and when we're done
+events.unsubscribe()
+```
+
+---
+
 ### Exercise #8
+
 We talked about the `catchError` operator before. But in that scenario (exercise #5), we stopped and completed the stream.
 
 Let's say we want to fish out any errors and continue the original stream. 
@@ -650,8 +667,10 @@ Let's say we want to fish out any errors and continue the original stream.
 ---
 
 ### Exercise #9
-...
-management
+
+Managing your subscriptions is important.
+
+In this exercise we're going to refactor code to reduce subscriptions.
 
 ---
 
