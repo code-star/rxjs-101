@@ -5,22 +5,20 @@
 ---
 
 <div style="float: left; width: 45%;">
-<img src="bjorn.jpg" width="100" style="border-radius:100%; display: inline-flex;">
-<h1 style="font-size: 0.9em;">Bjorn Schijff</h1>
-<small style="display: inline-flex;">Frontend Software Engineer @ Politie /
-<img src="codestar.svg" height="30" style="border: 0; background-color: transparent;">
-</small>
-<span style="font-size: 0.8em; display: inline-flex; white-space: nowrap;">
-@Bjeaurn / bjorn.schijff@ordina.nl
-</span>
+  <img src="bjorn.jpg" width="100" style="border-radius:100%; display: inline-flex;">
+  <h1 style="font-size: 0.9em;">Bjorn Schijff</h1>
+  <small style="display: inline-flex;">Frontend Software Engineer @ Politie</small>
+  <img src="codestar.svg" height="30" style="border: 0; background-color: transparent;">
+   <small>@Bjeaurn / bjorn.schijff@ordina.nl</small>
 </div>
 <div style="float: right; width: 45%;">
-<img src="martin.jpg" width="100" style="border-radius:100%; display: inline-flex;">
-<h1 style="font-size: 0.9em;">Martin van Dam</h1>
-<small>Frontend Software Engineer @ Port of Rotterdam /</small>
-<img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative; top: -8px;">
-@MrtnvDam / martin.van.dam@ordina.nl
+  <img src="martin.jpg" width="100" style="border-radius:100%; display: inline-flex;">
+  <h1 style="font-size: 0.9em;">Martin van Dam</h1>
+<small>Frontend Software Engineer @ BZK</small>
+  <img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative" /> 
+  <small>@MrtnvDam / martin.van.dam@ordina.nl</small>
 </div>
+
 ---
 
 ## What is RxJS?
@@ -64,11 +62,11 @@ locationUpdates.subscribe(newShipLocation => {
 
 ```ts
 const ticks = interval(this.tickMs)
-    .pipe(map() => 'tick'))
+    .pipe(map(() => 'tick'))
 const frames = interval(this.fpsMs)
-    .pipe(map() => 'frame'))
+    .pipe(map(() => 'frame'))
 const seconds = interval(1000)
-    .pipe(map() => 'second'))
+    .pipe(map(() => 'second'))
 
 this.update$ = merge(ticks, frames, seconds)
     .share()
@@ -125,7 +123,7 @@ export class Component {
 
 - Implementation of the Observable pattern in Javascript
 - Used heavily by `Angular`
-- Lot's of adoption in libraries like
+- Lots of adoption in libraries like
   - `Redux-observable`
   - `VueRx`
 - Java/Scala also have their implementation.
@@ -544,7 +542,7 @@ Hint: the `from` creator and the `map` operator could help here.
 ```ts
 const obs = interval(1000).pipe(
     // share(), <--- This makes it hot! 🌶️
-    // Share secrelty is a `multicast()` with a `refCount()`
+    // Share secretly is a `multicast()` with a `refCount()`
     take(5),
 )
 
@@ -584,7 +582,7 @@ Fix the bug! 🐛
 
 ---
 
-Questions? ⁉️
+Questions?
 
 ---
 
