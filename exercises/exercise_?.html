@@ -22,10 +22,11 @@
         const textInputNode = document.getElementById('textInput')
 
         const { pipe, fromEvent } = rxjs
-        const { map, debounceTime } = rxjs.operators
+        const { map, debounceTime, distinctUntilChanged } = rxjs.operators
 
         const keyUpObservable = fromEvent(textInputNode, 'keyup').pipe(
             map(e => e.target.value),
+            distinctUntilChanged(),
             debounceTime(200)
         )
 

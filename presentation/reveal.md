@@ -5,22 +5,20 @@
 ---
 
 <div style="float: left; width: 45%;">
-<img src="bjorn.jpg" width="100" style="border-radius:100%; display: inline-flex;">
-<h1 style="font-size: 0.9em;">Bjorn Schijff</h1>
-<small style="display: inline-flex;">Frontend Software Engineer @ Politie /
-<img src="codestar.svg" height="30" style="border: 0; background-color: transparent;">
-</small>
-<span style="font-size: 0.8em; display: inline-flex; white-space: nowrap;">
-@Bjeaurn / bjorn.schijff@ordina.nl
-</span>
+  <img src="bjorn.jpg" width="100" style="border-radius:100%; display: inline-flex;">
+  <h1 style="font-size: 0.9em;">Bjorn Schijff</h1>
+  <small style="display: inline-flex;">Frontend Software Engineer @ Politie</small>
+  <img src="codestar.svg" height="30" style="border: 0; background-color: transparent;">
+   <small>@Bjeaurn / bjorn.schijff@ordina.nl</small>
 </div>
 <div style="float: right; width: 45%;">
-<img src="martin.jpg" width="100" style="border-radius:100%; display: inline-flex;">
-<h1 style="font-size: 0.9em;">Martin van Dam</h1>
-<small>Frontend Software Engineer @ Port of Rotterdam /</small>
-<img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative; top: -8px;">
-@MrtnvDam / martin.van.dam@ordina.nl
+  <img src="martin.jpg" width="100" style="border-radius:100%; display: inline-flex;">
+  <h1 style="font-size: 0.9em;">Martin van Dam</h1>
+<small>Frontend Software Engineer @ BZK</small>
+  <img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative" /> 
+  <small>@MrtnvDam / martin.van.dam@ordina.nl</small>
 </div>
+
 ---
 
 ## What is RxJS?
@@ -64,11 +62,11 @@ locationUpdates.subscribe(newShipLocation => {
 
 ```ts
 const ticks = interval(this.tickMs)
-    .pipe(map() => 'tick'))
+    .pipe(map(() => 'tick'))
 const frames = interval(this.fpsMs)
-    .pipe(map() => 'frame'))
+    .pipe(map(() => 'frame'))
 const seconds = interval(1000)
-    .pipe(map() => 'second'))
+    .pipe(map(() => 'second'))
 
 this.update$ = merge(ticks, frames, seconds)
     .share()
@@ -125,7 +123,7 @@ export class Component {
 
 - Implementation of the Observable pattern in Javascript
 - Used heavily by `Angular`
-- Lot's of adoption in libraries like
+- Lots of adoption in libraries like
   - `Redux-observable`
   - `VueRx`
 - Java/Scala also have their implementation.
@@ -275,6 +273,12 @@ obs.subscribe(
 );
 ```
 
+<!-- .element: class="fragment" -->
+```
+// What happens when we switch the map() and filter() around?
+```
+<!-- .element: class="fragment" -->
+
 ---
 
 #### But wait, there's more! 🙀
@@ -394,28 +398,19 @@ const obs = from([1, 2, 3]).pipe(
 
 ### `catchError()`
 
-Handle errors and eventually return a fallback value
+- By default, the Observable will finish on errors
+- catchError operator will help handle errors
 
 ```ts
 const obs = from([1, 2, 3]).pipe(
-  map(n => {
-    if (n === 2) {
-      throw new Error("An error occured");
-    }
-    return n;
-  }),
+  map( ... ),
   catchError((err, caught) => {
-    return EMPTY;
-    // catchError takes an error Observable, handles the error
-    // and either returns the same observable,
-    // or creates a new one that will function.
+    // `catchError` takes an error Observable, handles
+    // the error and either breaks the stream or returns
+    // a new one that functions.
+    // This operator basically works like a `switchMap`
+    return ...
   })
-);
-// scroll down for more
-obs.subscribe(
-  n => console.log(n),
-  e => console.error(e),
-  () => console.log("done")
 );
 ```
 
@@ -501,6 +496,14 @@ Hint: use `typeof x === 'string'` and `toUpperCase()`
 
 ---
 
+### Exercise #5
+
+A part of this exercise is given business logic, but we need the Observable to complete.
+
+Add operators to make sure we handle any errors given by the Observable so it completes again.
+
+---
+
 # Common mistakes
 
 - By André Staltz
@@ -515,45 +518,9 @@ Hint: use `typeof x === 'string'` and `toUpperCase()`
 
 ---
 
-# Error handling
-
-- By default, the Observable will finish on errors
-- `catchError` operator will help handle errors
-
-```js
-const obs = from([1, 2, 3]).pipe(
-  map(n => {
-    if (n === 2) {
-      throw new Error("Something went wrong");
-    }
-    return n;
-  }),
-  catchError((err, caught) => {
-    return EMPTY;
-  })
-);
-// scroll down for more
-obs.subscribe(
-  n => console.log(n),
-  e => console.error(e),
-  () => console.log("done")
-);
-```
-
-````
----
-
 # Exercises
 
 Part three
-
----
-
-### Exercise #5
-
-A part of this exercise is given business logic, but we need the Observable to complete.
-
-Add operators to make sure we handle any errors given by the Observable so it completes again.
 
 ---
 
@@ -575,7 +542,7 @@ Hint: the `from` creator and the `map` operator could help here.
 ```ts
 const obs = interval(1000).pipe(
     // share(), <--- This makes it hot! 🌶️
-    // Share secrelty is a `multicast()` with a `refCount()`
+    // Share secretly is a `multicast()` with a `refCount()`
     take(5),
 )
 
@@ -607,14 +574,6 @@ Fix the bug! 🐛
 
 ---
 
-### Exercise #8
-
-Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
-
-Hint; not all types have moves, and you only need (should have) 1 subscribe.
-
----
-
 # Final review;
 
 - Reflect on how easy it can be to read RxJS code
@@ -623,9 +582,110 @@ Hint; not all types have moves, and you only need (should have) 1 subscribe.
 
 ---
 
-Questions? ⁉️
+Questions?
 
 ---
 
 🙌 Thanks for your attention and attendance! 🙌
-````
+
+<div style="float: left; width: 40%;">@Bjeaurn</div>
+<div style="float: right; width: 40%;">@MrtnvDam</div>
+
+---
+
+### ⛔️ Advanced stuff ahead!
+
+---
+
+### `switchMap()` operator
+
+`Projects each source value to an Observable which is merged in the output`
+
+```js
+fromEvent(document, 'click')
+.pipe(
+  // restart counter on every click
+  switchMap(() => interval(1000))
+)
+.subscribe(console.log);
+```
+
+----
+
+```ts
+this.http.get<ID>(MY_URL).pipe(
+  switchMap(id => {
+    const url = MY_SECOND_URL.replace(":thingId", id)
+    return this.http.get(url)
+  })
+)
+```
+
+---
+
+### Subscription management 😕
+
+```js
+const onFocus = fromEvent(input, 'focus')
+const onBlur = fromEvent(input, 'blur')
+const onKeyUp = fromEvent(input, 'keyup')
+
+onFocus.subscribe(() => validateInput())
+onBlur.subscribe(() => validateInput())
+onKeyUp.subscribe(() => validateInput())
+
+// and when we're done
+onClick.unsubscribe()
+onScroll.unsubscribe()
+onResize.unsubscribe()
+```
+
+---
+
+### Subscription management 😎
+
+```js
+const onFocus = fromEvent(input, 'focus')
+const onBlur = fromEvent(input, 'blur')
+const onKeyUp = fromEvent(input, 'keyup')
+const events = merge(onFocus, onBlur, onKeyUp)
+
+events.subscribe(() => validateInput())
+
+// and when we're done
+events.unsubscribe()
+```
+
+---
+
+### Exercise #8
+
+We talked about the `catchError` operator before. But in that scenario (exercise #5), we stopped and completed the stream.
+
+Let's say we want to fish out any errors and continue the original stream. 
+
+---
+
+### Exercise #9
+
+Managing your subscriptions is important.
+
+In this exercise we're going to refactor code to reduce subscriptions.
+
+---
+
+### Exercise #10
+
+Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
+
+Hint; not all types have moves, and you only need (should have) 1 subscribe.
+
+---
+
+### Exercise #11
+
+This exercise is in Angular on Stackblitz.
+
+We have an application that uses a BehaviorSubject, and keeps local state of some values; but maintains a stream like it was coming from a server.
+
+Refactor it so it doesn't need a BehaviorSubject, works the exact same and in turn make it simpler.
