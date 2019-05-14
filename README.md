@@ -6,12 +6,12 @@
 
 - [X] Contact met Academy voor aanmelding training/trainers
 - [X] Academy formulieren invullen en sturen.
-- [ ] Slides/presentatie maken.
-    - [ ] Aantal excercises bepalen
-    - [ ] Rode draad tussen excercises vastleggen.
-    - [ ] Note: Moeten we nog nadenken over non-Mac gebruikers?
+- [X] Slides/presentatie maken.
+    - [X] Aantal excercises bepalen
+    - [X] Rode draad tussen excercises vastleggen.
+    - [X] Note: Moeten we nog nadenken over non-Mac gebruikers?
 
-- [ ] Exercises los aanbieden, omdat niet iedereen op hetzelfde tempo werkt?    
+- [X] Exercises los aanbieden, omdat niet iedereen op hetzelfde tempo werkt?    
 
 - [X] Invullen lesplan
     - [X] Allebei eigen variant klaarmaken, vergelijken.
