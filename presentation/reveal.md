@@ -430,8 +430,8 @@ concat(obs1, obs2);
 
 ---
 
-- There's about a 120 operators.
-- They're all on https://github.com/ReactiveX/rxjs/tree/master/src
+- There are about 120 operators.
+- All available on https://github.com/ReactiveX/rxjs/tree/master/src
 - It's a bit scary at first, but don't be afraid to just go there and lookup what an operator does.
 
 ---
@@ -451,9 +451,9 @@ const { from, pipe } = rxjs;
 const { filter, map } = rxjs.operators;
 
 const observable = from([1, 2, 4, 8, 16, 32])
-  .pipe
-  // apply filtering here... //
-  ();
+  .pipe(
+    // apply filtering here... //
+  ;
 
 observable.subscribe(value => {
   console.log(value); // should log the values 1, 2, 4, 8
@@ -476,7 +476,7 @@ const observable = from([1, 2, 4, 8, 16, 32])
   ();
 
 observable.subscribe(value => {
-  console.log(value); // should log the values 2, 3, 8, 16, 32, 64
+  console.log(value); // should log the values 2, 4, 8, 16, 32, 64
 });
 ```
 
