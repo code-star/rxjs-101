@@ -189,13 +189,9 @@ const observable = from(...)
 const obs = from([1, 2, 3]);
 
 obs.subscribe(
-  next => {
-    console.log(next);
-  },
+  next => { console.log(next) },
   error => {},
-  complete => {
-    console.log("I'm done!");
-  }
+  complete => { console.log("I'm done!") }
 );
 
 // What does this do?
@@ -210,16 +206,14 @@ obs.subscribe(
 #### Subscription
 
 ```js
-const obs = from([1, 2, 3]).pipe(delay(1));
+const obs = from([1, 2, 3]).pipe(
+  delay(1)
+);
 
 const subscription = obs.subscribe(
-  next => {
-    console.log(next);
-  },
+  next => { console.log(next) },
   error => {},
-  complete => {
-    console.log("I'm done!");
-  }
+  complete => { console.log("I'm done!") }
 );
 
 subscription.unsubscribe();
