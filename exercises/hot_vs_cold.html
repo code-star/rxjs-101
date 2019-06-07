@@ -18,7 +18,7 @@
 			const obs = interval(1000).pipe(
 				// Toggle the line beneath here to play around with the differences.
 				// share(), // <--- This makes it hot! 🔥
-				take(5) // You can move the `take(5)` to be before the share().
+				take(5), // You can move the `take(5)` to be before the share().
 			);
 
 			obs.subscribe(a => console.log("A", a));
