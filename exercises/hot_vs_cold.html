@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>RxJS exercise ?</title>
+	</head>
+	<body>
+		<h2 id="pageTitle">Hot vs. Cold Observables example</h2>
+
+		<script src="https://unpkg.com/rxjs@latest/bundles/rxjs.umd.min.js"></script>
+		<script>
+			// This page shows the difference between hot and cold Observables.
+
+			const { interval } = rxjs;
+			const { take, share } = rxjs.operators;
+
+			// Share secretly is a `multicast()` with a `refCount()`
+			const obs = interval(1000).pipe(
+				// Toggle the line beneath here to play around with the differences.
+				// share(), // <--- This makes it hot! 🔥
+				take(5) // You can move the `take(5)` to be before the share().
+			);
+
+			obs.subscribe(a => console.log("A", a));
+
+			setTimeout(() => {
+				obs.subscribe(b => console.log("B", b));
+			}, 1001); // We start it after the first emit.
+		</script>
+	</body>
+</html>

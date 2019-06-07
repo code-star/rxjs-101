@@ -534,7 +534,7 @@ Hint: the `from` creator and the `map` operator could help here.
 
 - A cold ❄️ Observable does not emit events when there are no subscribers.<!-- .element: class="fragment" -->
 - A hot 🔥 Observable does emit events, even if there's no subscriber.<!-- .element: class="fragment" -->
-- A cold ❄️Observable creates a new stream for each subscriber.<!-- .element: class="fragment" -->
+- A cold ❄️ Observable creates a new stream for each subscriber.<!-- .element: class="fragment" -->
 - A hot 🔥 Observable adds a new subscriber to the existing Observable.<!-- .element: class="fragment" -->
 
 ----
