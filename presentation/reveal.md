@@ -532,10 +532,16 @@ Hint: the `from` creator and the `map` operator could help here.
 
 ## Cold versus Hot
 
+- A cold ❄️ Observable does not emit events when there are no subscribers.<!-- .element: class="fragment" -->
+- A hot 🔥 Observable does emit events, even if there's no subscriber.<!-- .element: class="fragment" -->
+- A cold ❄️Observable creates a new stream for each subscriber.<!-- .element: class="fragment" -->
+- A hot 🔥 Observable adds a new subscriber to the existing Observable.<!-- .element: class="fragment" -->
+
+----
 
 ```ts
 const obs = interval(1000).pipe(
-    // share(), <--- This makes it hot! 🌶️
+    // share(), <--- This makes it hot! 🔥
     // Share secretly is a `multicast()` with a `refCount()`
     take(5),
 )
@@ -548,7 +554,7 @@ setTimeout(() => {
 ```
 
 ```js
-// 🌶️ Hot: A0, A1, B1, A2, B2, etc.
+// 🔥 Hot: A0, A1, B1, A2, B2, etc.
 // ❄️ Cold: A0, A1, B0, A2, B1, A3, B2, etc.
 ```
 
