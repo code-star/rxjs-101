@@ -240,13 +240,14 @@ subscription.unsubscribe();
 
 ---
 
-#### Creation
+#### Creation operators
 
 - Generates an Observable based on your input
   `from() of()`<br /> <!-- .element: class="fragment" -->
   `interval() EMPTY`<br /> <!-- .element: class="fragment" -->
   `fromPromise() merge() concat()`<br /> <!-- .element: class="fragment" -->
-  - and more!<!-- .element: class="fragment" -->
+  `zip()`<br /> <!-- .element: class="fragment" -->
+  - and more! (On that later!)<!-- .element: class="fragment" -->
 
 ---
 
@@ -559,6 +560,47 @@ setTimeout(() => {
 ```
 
 ⛔️ Advanced stuff! Interested? Look up `share()` and its friends.
+
+---
+
+## More about Creation operators
+- `from`, `of`, `EMPTY`, `fromEvent`
+- `merge`, `concat`, etc.
+- `combineLatest`
+- `race`
+- `zip`
+
+There are many more!
+
+----
+
+```ts
+const one$ = interval(100).pipe(mapTo(1))
+const two$ = interval(200).pipe(mapTo(2))
+const three$ = interval(300).pipe(mapTo(3))
+
+const merged$ = merge(one$, two$, three$)
+// What happens?
+```
+
+----
+
+```ts
+const one$ = interval(1000).pipe(mapTo(1))
+const two$ = interval(2000).pipe(mapTo(2))
+
+const combined$ = combineLatest(one$, two$)
+// What happens?
+```
+
+----
+
+```ts
+const one$ = interval(1000).pipe(mapTo(1))
+const two$ = interval(2000).pipe(mapTo(2))
+
+const zipped$ = zip(one$, two$)
+```
 
 ---
 
