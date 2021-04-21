@@ -19,13 +19,18 @@
 			const { from } = rxjs;
 			const { map } = rxjs.operators;
 
+			// You cannot change the business logic.
+			const businessLogic = (n) => {
+				if (n === 2) {
+					throw new Error("You shall not pass.");
+				}
+				return n;
+			}
+
+
 			const obs = from([1, 2, 3]).pipe(
-				map(n => {
-					if (n === 2) {
-						throw new Error("You shall not pass.");
-					}
-					return n;
-				})
+				// We require the business logic.
+				map(businessLogic)
 			);
 
 			obs.subscribe(

@@ -8,7 +8,7 @@
 
 <body>
     <script src="https://unpkg.com/rxjs@latest/bundles/rxjs.umd.min.js"></script>
-    <script src="./pokemon.js"></script>
+    <script src="../../exercises/pokemon.js"></script>
     <script>
         // Exercise 8;
         // We have two observables, both containing separate parts of data that can be linked.
@@ -25,7 +25,7 @@
         const type = 'psychic';
         const filtered = pokemonObs.pipe(
             concatAll(),
-            filter(p => p.id === 50),
+            filter(p => p.id === 25),
             mergeMap(m => typesObs.pipe(
                 concatAll(),
                 filter(t => t.id === m.type),
