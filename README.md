@@ -1,23 +1,4 @@
 ## Codestar RxJS 101
-
-## Todo
-> W = waiting for
-> X = done
-
-- [X] Contact met Academy voor aanmelding training/trainers
-- [X] Academy formulieren invullen en sturen.
-- [X] Slides/presentatie maken.
-    - [X] Aantal excercises bepalen
-    - [X] Rode draad tussen excercises vastleggen.
-    - [X] Note: Moeten we nog nadenken over non-Mac gebruikers?
-
-- [X] Exercises los aanbieden, omdat niet iedereen op hetzelfde tempo werkt?    
-
-- [X] Invullen lesplan
-    - [X] Allebei eigen variant klaarmaken, vergelijken.
-    - [X] Invullen in Word template, verzenden naar Academy.
-
-
 ### Requirements
 * [Node](https://nodejs.org/en/download/)
 * [Code editor / IDE](https://code.visualstudio.com/Download)
