@@ -14,7 +14,7 @@
 <div style="float: right; width: 45%;">
   <img src="martin.jpg" width="100" style="border-radius:100%; display: inline-flex;">
   <h1 style="font-size: 0.9em;">Martin van Dam</h1>
-<small>Frontend Software Engineer @ BZK</small>
+<small>Frontend Software Engineer @ Philips</small>
   <img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative" /> 
   <small>@MrtnvDam / martin.van.dam@ordina.nl</small>
 </div>
@@ -471,9 +471,9 @@ const { from, pipe } = rxjs;
 const { filter, map } = rxjs.operators;
 
 const observable = from([1, 2, 4, 8, 16, 32])
-  .pipe
-  // apply transformations here... //
-  ();
+  .pipe(
+    // apply transformations here... //
+  );
 
 observable.subscribe(value => {
   console.log(value); // should log the values 2, 4, 8, 16, 32, 64
