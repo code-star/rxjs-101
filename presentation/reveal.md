@@ -679,13 +679,3 @@ In this exercise we're going to refactor code to reduce subscriptions.
 Link the two observables to merge a Pokémon Observable with a Pokémon Moves Observable.
 
 Hint; not all types have moves, and you only need (should have) 1 subscribe.
-
----
-
-### Exercise #11
-
-This exercise is in Angular on Stackblitz.
-
-We have an application that uses a BehaviorSubject, and keeps local state of some values; but maintains a stream like it was coming from a server.
-
-Refactor it so it doesn't need a BehaviorSubject, works the exact same and in turn make it simpler.
