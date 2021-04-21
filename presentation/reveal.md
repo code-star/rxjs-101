@@ -520,7 +520,7 @@ Part three
 
 ### Exercise #6
 
-A: There are two things that are going wrong in this code. Can you see what they are? Adjust the code to fix those problems.
+A: This Observable does not complete right now. We want Observables to handle errors and complete naturally.
 
 Hint: Run the example first and check the console log.
 
