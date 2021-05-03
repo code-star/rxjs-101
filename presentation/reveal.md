@@ -7,7 +7,7 @@
 <div style="float: left; width: 45%;">
   <img src="bjorn.jpg" width="100" style="border-radius:100%; display: inline-flex;">
   <h1 style="font-size: 0.9em;">Bjorn Schijff</h1>
-  <small style="display: inline-flex;">Frontend Software Engineer @ Politie</small>
+  <small style="display: inline-flex;">Senior Frontend Software Engineer</small>
   <img src="codestar.svg" height="30" style="border: 0; background-color: transparent;">
    <small>@Bjeaurn / bjorn.schijff@ordina.nl</small>
 </div>
