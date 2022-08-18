@@ -132,26 +132,6 @@ export class Component {
 
 ---
 
-### Disclaimer
-
-All examples are based on RxJS v6
-
-```js
-// RxJS v5
-import * as Rx from 'rxjs'
-const observable = Rx.Observable.from(...)
-
-// RxJS v6 - TypeScript
-import { from } from 'rxjs'
-const observable = from(...)
-
-// RxJS v6 - JavaScript
-const { from } = 'rxjs';
-const observable = from(...)
-```
-
----
-
 # The RxJS Contract
 
 ---
@@ -188,11 +168,11 @@ const observable = from(...)
 ```js
 const obs = from([1, 2, 3]);
 
-obs.subscribe(
-  next => { console.log(next) },
-  error => {},
-  complete => { console.log("I'm done!") }
-);
+obs.subscribe({
+  next: (next) => { console.log(next) },
+  error: () => {},
+  complete: () => { console.log("I'm done!") }
+});
 
 // What does this do?
 ```
@@ -210,11 +190,11 @@ const obs = from([1, 2, 3]).pipe(
   delay(1)
 );
 
-const subscription = obs.subscribe(
-  next => { console.log(next) },
-  error => {},
-  complete => { console.log("I'm done!") }
-);
+const subscription = obs.subscribe({
+  next: (next) => { console.log(next) },
+  error: () => {},
+  complete: () => { console.log("I'm done!") }
+});
 
 subscription.unsubscribe();
 
@@ -245,9 +225,11 @@ subscription.unsubscribe();
 - Generates an Observable based on your input
   `from() of()`<br /> <!-- .element: class="fragment" -->
   `interval() EMPTY`<br /> <!-- .element: class="fragment" -->
-  `fromPromise() merge() concat()`<br /> <!-- .element: class="fragment" -->
+  `merge() concat()`<br /> <!-- .element: class="fragment" -->
   `zip()`<br /> <!-- .element: class="fragment" -->
   - and more! (On that later!)<!-- .element: class="fragment" -->
+
+Note: from() is the catchall for a lot of different variables, including Promises. fromPromise has been deprecated a while ago. Corneel en Tobias doen hier leuke analogie??
 
 ---
 
@@ -257,15 +239,15 @@ const obs = from([1, 2, 3]).pipe(
   filter(x => x < 4)
 );
 
-obs.subscribe(
-  next => {
+obs.subscribe({
+  next: (next) => {
     console.log(next);
   }, // 2, 4, I'm done!
-  error => {},
-  complete => {
+  error: () => {},
+  complete: () => {
     console.log("I'm done!");
   }
-);
+});
 ```
 
 <!-- .element: class="fragment" -->
@@ -302,10 +284,10 @@ cd rxjs-101/exercises
 - Open the folder in your favorite IDE/text editor.
 
 ```sh
-code .
+code . // For Visual Studio Code.
+idea . // For IntelliJ
 ```
 
-For Visual Studio Code.
 
 ---
 
@@ -343,9 +325,9 @@ const rangeObservable = range(1, 3);
 - Utility like `tap()`
 - Error handling like `catchError()`
 - Combination like `merge()`
-- Flattening like `switch()`
+- Flattening like `switchMap()`
 - Multicasting like `share()`
-- And plenty of combined operators, like `switchMap()` or `mergeMap()`
+- And plenty of combined operators, like `mergeMap()`
 
 ---
 
