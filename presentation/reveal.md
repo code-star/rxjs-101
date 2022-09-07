@@ -7,14 +7,14 @@
 <div style="float: left; width: 45%;">
   <img src="bjorn.jpg" width="100" style="border-radius:100%; display: inline-flex;">
   <h1 style="font-size: 0.9em;">Bjorn Schijff</h1>
-  <small style="display: inline-flex;">Senior Frontend Software Engineer</small>
+  <small style="display: inline-flex;">Frontend Engineer / Architect</small>
   <img src="codestar.svg" height="30" style="border: 0; background-color: transparent;">
    <small>@Bjeaurn / bjorn.schijff@ordina.nl</small>
 </div>
 <div style="float: right; width: 45%;">
   <img src="martin.jpg" width="100" style="border-radius:100%; display: inline-flex;">
   <h1 style="font-size: 0.9em;">Martin van Dam</h1>
-<small>Frontend Software Engineer @ Philips</small>
+<small>Frontend Engineer / Architect</small>
   <img src="codestar.svg" height="30" style="border: 0; background-color: transparent; position: relative" /> 
   <small>@MrtnvDam / martin.van.dam@ordina.nl</small>
 </div>
@@ -50,7 +50,7 @@
 ```ts
 const locationUpdates = webSocket("ws://some-live-shiplocation-api");
 
-locationUpdates.subscribe(newShipLocation => {
+locationUpdates.subscribe((newShipLocation) => {
   // update UI with new location i.e.
   this.state.shiplocation = newShipLocation;
 });
@@ -61,15 +61,11 @@ locationUpdates.subscribe(newShipLocation => {
 #### Games
 
 ```ts
-const ticks = interval(this.tickMs)
-    .pipe(map(() => 'tick'))
-const frames = interval(this.fpsMs)
-    .pipe(map(() => 'frame'))
-const seconds = interval(1000)
-    .pipe(map(() => 'second'))
+const ticks = interval(this.tickMs).pipe(map(() => "tick"));
+const frames = interval(this.fpsMs).pipe(map(() => "frame"));
+const seconds = interval(1000).pipe(map(() => "second"));
 
-this.update$ = merge(ticks, frames, seconds)
-    .share()
+this.update$ = merge(ticks, frames, seconds).share();
 ```
 
 ---
@@ -103,7 +99,7 @@ export class Component {
   constructor(private eventsService: EventBusService) {
     this.eventsService
       .getEvents()
-      .filter(event => event.type === "InterestingEvent")
+      .filter((event) => event.type === "InterestingEvent")
       .subscribe(this.handleEvents);
   }
 
@@ -169,9 +165,13 @@ export class Component {
 const obs = from([1, 2, 3]);
 
 obs.subscribe({
-  next: (next) => { console.log(next) },
+  next: (next) => {
+    console.log(next);
+  },
   error: () => {},
-  complete: () => { console.log("I'm done!") }
+  complete: () => {
+    console.log("I'm done!");
+  },
 });
 
 // What does this do?
@@ -186,14 +186,16 @@ obs.subscribe({
 #### Subscription
 
 ```js
-const obs = from([1, 2, 3]).pipe(
-  delay(1)
-);
+const obs = from([1, 2, 3]).pipe(delay(1));
 
 const subscription = obs.subscribe({
-  next: (next) => { console.log(next) },
+  next: (next) => {
+    console.log(next);
+  },
   error: () => {},
-  complete: () => { console.log("I'm done!") }
+  complete: () => {
+    console.log("I'm done!");
+  },
 });
 
 subscription.unsubscribe();
@@ -235,8 +237,8 @@ Note: from() is the catchall for a lot of different variables, including Promise
 
 ```js
 const obs = from([1, 2, 3]).pipe(
-  map(x => x * 2),
-  filter(x => x < 4)
+  map((x) => x * 2),
+  filter((x) => x < 4)
 );
 
 obs.subscribe({
@@ -246,14 +248,16 @@ obs.subscribe({
   error: () => {},
   complete: () => {
     console.log("I'm done!");
-  }
+  },
 });
 ```
 
 <!-- .element: class="fragment" -->
+
 ```
 // What happens when we switch the map() and filter() around?
 ```
+
 <!-- .element: class="fragment" -->
 
 ---
@@ -287,7 +291,6 @@ cd rxjs-101/exercises
 code . // For Visual Studio Code.
 idea . // For IntelliJ
 ```
-
 
 ---
 
@@ -337,7 +340,7 @@ Transform the value to another value
 
 ```ts
 const obs = from([1, 2, 3]).pipe(
-  map(x => x * 2) // multiplies each item by 2
+  map((x) => x * 2) // multiplies each item by 2
 );
 
 // outputs: 2, 4, 6
@@ -351,7 +354,7 @@ Filter out values you're not interested in
 
 ```ts
 const obs = from([1, 2, 3]).pipe(
-  filter(x => x > 2) // only use values that are higher than 2
+  filter((x) => x > 2) // only use values that are higher than 2
 );
 
 // outputs: 3
@@ -365,7 +368,7 @@ Utility for doing side effects but it will not effect the actual data
 
 ```ts
 const obs = from([1, 2, 3]).pipe(
-  tap(x => console.log(x)) // logs the value to the console
+  tap((x) => console.log(x)) // logs the value to the console
 );
 
 // outputs: 1, 2, 3
@@ -454,11 +457,11 @@ const { from, pipe } = rxjs;
 const { filter, map } = rxjs.operators;
 
 const observable = from([1, 2, 4, 8, 16, 32])
-  .pipe(
-    // apply transformations here... //
-  );
+  .pipe
+  // apply transformations here... //
+  ();
 
-observable.subscribe(value => {
+observable.subscribe((value) => {
   console.log(value); // should log the values 2, 4, 8, 16, 32, 64
 });
 ```
@@ -520,20 +523,20 @@ Hint: the `from` creator and the `map` operator could help here.
 - A cold ❄️ Observable creates a new stream for each subscriber.<!-- .element: class="fragment" -->
 - A hot 🔥 Observable adds a new subscriber to the existing Observable.<!-- .element: class="fragment" -->
 
-----
+---
 
 ```ts
 const obs = interval(1000).pipe(
-    // share(), <--- This makes it hot! 🔥
-    // Share secretly is a `multicast()` with a `refCount()`
-    take(5),
-)
+  // share(), <--- This makes it hot! 🔥
+  // Share secretly is a `multicast()` with a `refCount()`
+  take(5)
+);
 
-obs.subscribe(a => console.log('A', a));
+obs.subscribe((a) => console.log("A", a));
 
 setTimeout(() => {
-    obs.subscribe(b => console.log('B', b))
-}, 1001) // We start it after the first emit.
+  obs.subscribe((b) => console.log("B", b));
+}, 1001); // We start it after the first emit.
 ```
 
 ```js
@@ -546,6 +549,7 @@ setTimeout(() => {
 ---
 
 ## More about Creation operators
+
 - `from`, `of`, `EMPTY`, `fromEvent`
 - `merge`, `concat`, etc.
 - `combineLatest`
@@ -554,34 +558,34 @@ setTimeout(() => {
 
 There are many more!
 
-----
+---
 
 ```ts
-const one$ = interval(100).pipe(mapTo(1))
-const two$ = interval(200).pipe(mapTo(2))
-const three$ = interval(300).pipe(mapTo(3))
+const one$ = interval(100).pipe(mapTo(1));
+const two$ = interval(200).pipe(mapTo(2));
+const three$ = interval(300).pipe(mapTo(3));
 
-const merged$ = merge(one$, two$, three$)
+const merged$ = merge(one$, two$, three$);
 // What happens?
 ```
 
-----
+---
 
 ```ts
-const one$ = interval(1000).pipe(mapTo(1))
-const two$ = interval(2000).pipe(mapTo(2))
+const one$ = interval(1000).pipe(mapTo(1));
+const two$ = interval(2000).pipe(mapTo(2));
 
-const combined$ = combineLatest(one$, two$)
+const combined$ = combineLatest(one$, two$);
 // What happens?
 ```
 
-----
+---
 
 ```ts
-const one$ = interval(1000).pipe(mapTo(1))
-const two$ = interval(2000).pipe(mapTo(2))
+const one$ = interval(1000).pipe(mapTo(1));
+const two$ = interval(2000).pipe(mapTo(2));
 
-const zipped$ = zip(one$, two$)
+const zipped$ = zip(one$, two$);
 ```
 
 ---
@@ -626,23 +630,23 @@ Questions?
 `Projects each source value to an Observable which is merged in the output`
 
 ```js
-fromEvent(document, 'click')
-.pipe(
-  // restart counter on every click
-  switchMap(() => interval(1000))
-)
-.subscribe(console.log);
+fromEvent(document, "click")
+  .pipe(
+    // restart counter on every click
+    switchMap(() => interval(1000))
+  )
+  .subscribe(console.log);
 ```
 
-----
+---
 
 ```ts
 this.http.get<ID>(MY_URL).pipe(
-  switchMap(id => {
-    const url = MY_SECOND_URL.replace(":thingId", id)
-    return this.http.get(url)
+  switchMap((id) => {
+    const url = MY_SECOND_URL.replace(":thingId", id);
+    return this.http.get(url);
   })
-)
+);
 ```
 
 ---
@@ -650,18 +654,18 @@ this.http.get<ID>(MY_URL).pipe(
 ### Subscription management 😕
 
 ```js
-const onFocus = fromEvent(input, 'focus')
-const onBlur = fromEvent(input, 'blur')
-const onKeyUp = fromEvent(input, 'keyup')
+const onFocus = fromEvent(input, "focus");
+const onBlur = fromEvent(input, "blur");
+const onKeyUp = fromEvent(input, "keyup");
 
-onFocus.subscribe(() => validateInput())
-onBlur.subscribe(() => validateInput())
-onKeyUp.subscribe(() => validateInput())
+onFocus.subscribe(() => validateInput());
+onBlur.subscribe(() => validateInput());
+onKeyUp.subscribe(() => validateInput());
 
 // and when we're done
-onClick.unsubscribe()
-onScroll.unsubscribe()
-onResize.unsubscribe()
+onClick.unsubscribe();
+onScroll.unsubscribe();
+onResize.unsubscribe();
 ```
 
 ---
@@ -669,15 +673,15 @@ onResize.unsubscribe()
 ### Subscription management 😎
 
 ```js
-const onFocus = fromEvent(input, 'focus')
-const onBlur = fromEvent(input, 'blur')
-const onKeyUp = fromEvent(input, 'keyup')
-const events = merge(onFocus, onBlur, onKeyUp)
+const onFocus = fromEvent(input, "focus");
+const onBlur = fromEvent(input, "blur");
+const onKeyUp = fromEvent(input, "keyup");
+const events = merge(onFocus, onBlur, onKeyUp);
 
-events.subscribe(() => validateInput())
+events.subscribe(() => validateInput());
 
 // and when we're done
-events.unsubscribe()
+events.unsubscribe();
 ```
 
 ---
@@ -686,7 +690,7 @@ events.unsubscribe()
 
 We talked about the `catchError` operator before. But in that scenario (exercise #5), we stopped and completed the stream.
 
-Let's say we want to fish out any errors and continue the original stream. 
+Let's say we want to fish out any errors and continue the original stream.
 
 ---
 
